@@ -3,8 +3,10 @@ import entitiesReducer from "./entities_reducer";
 import sessionReducer from "./sessionReducer";
 import errorReducer from "./errors_reducer";
 
-export default combineReducers({
+const rootReducer = combineReducers({
   entities: entitiesReducer,
   session: sessionReducer,
-  error: errorReducer
+  errors: errorReducer
 });
+
+export default rootReducer;
