@@ -4,6 +4,7 @@ import usersReducer from "./userReducer";
 
 const entitiesReducer = combineReducers({
   users: usersReducer
+
   //   session: sessionReducer
 });
 

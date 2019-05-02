@@ -21,6 +21,7 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUserLogIn = this.demoUserLogIn.bind(this);
   }
 
   update(field) {
@@ -33,17 +34,23 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user);
-    this.props.history.push("/");
+    this.props.login(user).then(() => this.props.history.push("/"));
+    // {
+    //   this.setState({ errors: [] });
+    // }
   }
-
+  demoUserLogIn() {
+    this.setState({ username: "mena", password: "aaaaaa" }, () => {
+      this.props.login(this.state);
+      this.props.history.push("/");
+    });
+  }
   renderErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li className="session-error">{error}</li>
+          <li key={`error-${i}`}>{error}</li>
         ))}
-        ;
       </ul>
     );
   }
@@ -52,8 +59,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-container">
         <div className="login-form-container">
-          <span>Log in Here!</span>
-          <img src={Logo} />
+          <span className="login-message">Let's get started</span>
           <form onSubmit={this.handleSubmit} className="login-form">
             <div className="login-input">
               <input
@@ -75,9 +81,18 @@ class LoginForm extends React.Component {
               />
             </div>
 
-            <button className="login-signin-button">Log in</button>
+            <input
+              type="submit"
+              className="login-signin-button"
+              value="Log in"
+            />
+            {/* <span>Log in</span> */}
+            <button className="login-demouser" onClick={this.demoUserLogIn}>
+              <span>Demo User Login</span>
+            </button>
           </form>
         </div>
+        {this.renderErrors()}
       </div>
     );
   }

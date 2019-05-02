@@ -1,16 +1,3 @@
-/* .session-form {
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 3%;
-  height: 420px;
-  width: 400px;
-} */
-
 .login-container {
   background: skyblue;
   overflow: hidden;
@@ -22,15 +9,18 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
+  /* margin-bottom: 200px; */
 }
 
 .login-form {
   background: white;
   margin: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .login-input-box {
   height: 30px;
   line-height: 30px;
@@ -48,12 +38,40 @@
   font-size: 20px;
   border: none;
   border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
+.login-demouser {
+  width: 200px;
+  height: 30px;
+  background: orange;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
 .login-logo {
   color: orange;
 }
 
+.login-message {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.25px;
+  display: block;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+/* span {
+  font-family: "Neue Plak";
+} */
 body {
   margin: 0;
+  font-family: Neue Plak, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif;
 }
