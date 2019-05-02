@@ -6,7 +6,6 @@ import { login, logout, signup } from "./actions/session_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
-  // const store = configureStore();
   let store;
   if (window.currentUser) {
     const preloadedState = {

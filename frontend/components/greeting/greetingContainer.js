@@ -4,8 +4,6 @@ import Greeting from "./greeting";
 
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.currentUserId]
-  //   console.log(currentUser);
-  //   console.log(state);
 });
 
 const mapDispatchToProps = dispatch => ({

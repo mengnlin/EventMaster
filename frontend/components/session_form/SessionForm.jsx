@@ -21,7 +21,6 @@ class SessionFrom extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    // e=> this.setState(e.currentTarget.value)
   }
 
   renderErrors() {
