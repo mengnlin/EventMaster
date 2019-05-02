@@ -36,5 +36,10 @@
   "engines": {
     "node": "10.15.3",
     "npm": "6.4.1"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "style-loader": "^0.23.1"
   }
 }

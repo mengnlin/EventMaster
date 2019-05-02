@@ -33,7 +33,8 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.signup(user);
+    this.props.history.push("/");
     // e=> this.setState(e.currentTarget.value)
   }
 
@@ -53,10 +54,10 @@ class SignupForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           Sign Up Here!
-          <Link to="/login">Sign In</Link>
+          {/* <Link to="/login">Sign In</Link> */}
           <br />
           <br />
-          <label>
+          <label className="session-form">
             {" "}
             Username:
             <input
@@ -66,7 +67,7 @@ class SignupForm extends React.Component {
             />
           </label>
           <br />
-          <label>
+          <label className="session-form">
             {" "}
             Email:
             <input
@@ -76,7 +77,7 @@ class SignupForm extends React.Component {
             />
           </label>
           <br />
-          <label>
+          <label className="session-form">
             {" "}
             Password:
             <input
@@ -85,7 +86,7 @@ class SignupForm extends React.Component {
               onChange={this.update("password")}
             />
           </label>
-          <button>Sign Up</button>
+          <button className="session-form">Sign Up</button>
         </form>
       </div>
     );
