@@ -5,8 +5,8 @@ class Api::UsersController < ApplicationController
             login(@user)
             render "api/users/show"
         else
-            render json:["user signup error"] , status: 401
-            # @user.errors.full_messages
+            render json: @user.errors.full_messages, status: 401
+           
         end
     end   
 
