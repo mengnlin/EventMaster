@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  mode: "development",
+  mode: "none",
   context: __dirname,
   entry: "./frontend/event_master.jsx",
   output: {
