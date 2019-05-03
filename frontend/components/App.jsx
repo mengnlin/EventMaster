@@ -1,5 +1,5 @@
 import React from "react";
-import GreetingContainer from "./greeting/greetingContainer";
+
 import { Redirect, Route, Switch } from "react-router-dom";
 import LoginFormContainer from "./session_form/LoginFormContainer";
 import SignupFormContainer from "./session_form/SignupFormContainer";
@@ -8,7 +8,6 @@ import Home from "./home";
 
 const App = () => (
   <div>
-    {/* <GreetingContainer /> */}
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
