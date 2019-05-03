@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :users
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user
