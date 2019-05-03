@@ -1,5 +1,5 @@
 .login-container {
-  background: skyblue;
+  /* background: skyblue; */
   overflow: hidden;
 }
 
@@ -8,13 +8,15 @@
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 200px;
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* margin-bottom: 200px; */
 }
 
 .login-form {
-  background: white;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -22,37 +24,33 @@
 }
 
 .login-input-box {
-  height: 30px;
-  line-height: 30px;
-  width: 200px;
-  font-size: 20px;
+  height: 47px;
+  width: 335px;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 16px;
   margin-bottom: 20px;
   border: 1px solid lightgray;
   border-radius: 2px;
 }
+
+.login-errors {
+  width: 300px;
+}
 .login-signin-button {
-  width: 200px;
-  height: 30px;
-  background: orange;
+  width: 339px;
+  height: 44px;
+  background-color: #d1410c;
+  padding: 0 30px 1px;
+  line-height: 24px;
   color: white;
-  font-size: 20px;
+  font-size: 14px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-bottom: 20px;
   font-size: 20px;
 }
 
-.login-demouser {
-  width: 200px;
-  height: 30px;
-  background: orange;
-  color: white;
-  font-size: 20px;
-  border: none;
-  border-radius: 2px;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
 .login-logo {
   color: orange;
 }
@@ -70,6 +68,11 @@
 /* span {
   font-family: "Neue Plak";
 } */
+.login-footer {
+  text-align: center;
+  color: gray;
+  font-size: 13px;
+}
 body {
   margin: 0;
   font-family: Neue Plak, -apple-system, BlinkMacSystemFont, Roboto,

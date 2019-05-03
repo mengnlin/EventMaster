@@ -1,0 +1,16 @@
+.bar-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(238, 237, 242);
+}
+
+.bar-webname a {
+  text-decoration: none;
+  color: #f05637;
+  margin-left: 20px;
+}
+
+.bar-webname {
+  flex-grow: 1;
+}
