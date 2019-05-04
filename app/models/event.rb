@@ -13,7 +13,7 @@
 
 class Event < ApplicationRecord
 
-    validates :title,:event_date,:event_date,:organizer_id,presence:true 
+    validates :title,:description,:event_date,:organizer_id,presence:true 
     validates :title, uniqueness:true
 
     belongs_to :users, foreign_key: :organizer_id,class_name: :User

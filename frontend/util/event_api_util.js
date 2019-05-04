@@ -1,15 +1,13 @@
 export const fetchEvent = id =>
   $.ajax({
     method: "GET",
-    url: `/api/events/${id}`,
-    date: { event }
+    url: `/api/events/${id}`
   });
 
-export const fetchEvents = events =>
+export const fetchEvents = () =>
   $.ajax({
     method: "GET",
-    url: "/api/events",
-    date: { events }
+    url: "/api/events"
   });
 
 export const createEvent = event =>
@@ -23,11 +21,11 @@ export const updateEvent = event =>
   $.ajax({
     method: "PATCH",
     url: `/api/events/${event.id}`,
-    data: { event }
+    data: event
   });
 
-export const destroyEvent = () =>
+export const deleteEvent = id =>
   $.ajax({
-    method: "DESTROY",
-    url: "/api/events"
+    method: "DELETE",
+    url: `/api/events/${id}`
   });

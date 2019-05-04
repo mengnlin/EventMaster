@@ -6,9 +6,8 @@ class Api::EventsController < ApplicationController
         @event.organizer_id = current_user.id
         if @event.save
             render 'api/events/show'
-            # why not render json @event
         else  
-            render json: @event.errors.full_message,status:422
+            render json: @event.errors.full_messages, status:422
         end 
     end 
     def index 
@@ -29,7 +28,7 @@ class Api::EventsController < ApplicationController
         if @event.save 
             render 'api/events/show' 
         else  
-            render json: @event.errors.full_message,status:422 
+            render json: @event.errors.full_messages, status:422 
         end 
     end 
 
@@ -40,7 +39,7 @@ class Api::EventsController < ApplicationController
 
     private 
     def event_params 
-        params.require(:event).permit(:title,:description :event_date)
+        params.permit(:title,:description,:event_date)
     end  
 
 end

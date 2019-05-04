@@ -6,12 +6,12 @@ export const DELETE_EVENT = "DELETE_EVENT";
 // export const UPDATE_EVENT = "UPDATE_EVENT";
 export const RECEIVE_EVENT_ERRORS = "RECEIVE_EVENT_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
-const receiveCurrentEvent = () => ({
+const receiveCurrentEvent = event => ({
   type: RECEIVE_CURRENT_EVENT,
   event
 });
 
-const receiveAllEvents = () => ({
+const receiveAllEvents = events => ({
   type: RECEIVE_ALL_EVENTS,
   events
 });
@@ -43,14 +43,14 @@ export const fetchEvents = () => dispatch =>
 export const createEvent = event => dispatch =>
   APIUtil.createEvent(event).then(
     event => dispatch(receiveCurrentEvent(event)),
-    err => dispatch(receiveErrors(err.responseJSON))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
 export const updateEvent = event => dispatch =>
   APIUtil.updateEvent(event).then(
     event => dispatch(receiveCurrentEvent(event)),
-    err => dispatch(receiveErrors(err.responseJSON))
+    errors => dispatch(receiveErrors(errors))
   );
 
 export const deleteEvent = id => dispatch =>
-  APIUtil.deleteEvent(event).then(event => dispatch(removeEvent(id)));
+  APIUtil.deleteEvent(id).then(event => dispatch(removeEvent(id)));
