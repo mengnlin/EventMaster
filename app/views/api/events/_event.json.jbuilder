@@ -1,0 +1,1 @@
+json.extract! event, :title,:description,:event_id,:organizer_id 
