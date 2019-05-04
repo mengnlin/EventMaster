@@ -22,7 +22,7 @@ class Api::EventsController < ApplicationController
 
 
     def update 
-        @event=Event.find(params[:event][:id])
+        @event=Event.find(params[:id])
 
         # why do we need to have params[:event][:id]
         @event.update_attributes(event_params)
@@ -40,7 +40,7 @@ class Api::EventsController < ApplicationController
 
     private 
     def event_params 
-        params.require(:event).permit(:title,:description,:event_date)
+        params.require(:event).permit(:title,:description :event_date)
     end  
 
 end
