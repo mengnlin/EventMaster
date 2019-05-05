@@ -12,7 +12,7 @@ class Api::EventsController < ApplicationController
     end 
     def index 
         @events=Event.all
-        # render json :index
+        # render JSON :index
     end 
 
     def show 

@@ -20,7 +20,10 @@ class EventFrom extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const event = Object.assign({}, this.state);
-    this.props.processForm(event).then(() => this.props.history.push("/"));
+    this.props.processForm(event).then(event => {
+      console.log(event);
+      this.props.history.push(`/events/${event.event.id}`);
+    });
   }
   renderErrors() {
     return (

@@ -3,7 +3,7 @@ import {
   RECEIVE_CURRENT_EVENT,
   RECEIVE_ALL_EVENTS,
   DELETE_EVENT
-} from "../util/event_api_util";
+} from "../actions/event_actions";
 
 const eventReducer = (state = {}, action) => {
   Object.freeze(state);
