@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 const App = () => (
   <div>
     <Link to="/event/new">new event</Link>
+    <Link to="/events/:id/edit">edit event</Link>
+
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -22,7 +24,7 @@ const App = () => (
       />
       <ProtectedRoute
         exact
-        path="/event/edit"
+        path="/events/:id/edit"
         component={UpdateEventFormContainer}
       />
       <Route exact path="/" component={Home} />

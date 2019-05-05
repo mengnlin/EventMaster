@@ -49,7 +49,7 @@ export const createEvent = event => dispatch =>
 export const updateEvent = event => dispatch =>
   APIUtil.updateEvent(event).then(
     event => dispatch(receiveCurrentEvent(event)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 
 export const deleteEvent = id => dispatch =>

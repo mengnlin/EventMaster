@@ -1,13 +1,9 @@
 import React from "react";
-
+import { withRouter } from "react-router-dom";
 class EventFrom extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      description: "",
-      event_date: ""
-    };
+    this.state = this.props.event;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -66,4 +62,4 @@ class EventFrom extends React.Component {
   }
 }
 
-export default EventFrom;
+export default withRouter(EventFrom);
