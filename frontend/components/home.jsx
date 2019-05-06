@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logout } from "../actions/session_actions";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 const mapStateToProps = state => ({
-  currentUser: state.entities.users[state.session.currentUserId]
+  currentUser: state.entities.user
 });
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
@@ -17,6 +17,8 @@ const Home = ({ currentUser, logout }) => {
       <Bar>
         {!!currentUser || <NavBarButton label="Sign In" link="/login" />}
         {!!currentUser || <NavBarButton label="Sign Up" link="/signup" />}
+        {currentUser && <NavBarButton label="Create Event" link="/event/new" />}
+        {currentUser && <NavBarButton label="My Events" link="/myevents" />}
         {currentUser && (
           <NavBarButton label="Sign Out" link="/" onClick={logout} />
         )}

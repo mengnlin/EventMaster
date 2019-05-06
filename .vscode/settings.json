@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        ".byebug_history": true,
+        ".ruby-version": true,
+        ".vscode": true,
+        "bin": true,
+        "lib": true,
+        "log": true,
+        "node_modules": true,
+        "storage": true,
+        "test": true,
+        "tmp": true,
+        "vendor": true
+    }
+}

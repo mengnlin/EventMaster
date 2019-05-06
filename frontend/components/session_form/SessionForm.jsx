@@ -36,13 +36,17 @@ class SessionFrom extends React.Component {
     });
   }
   renderErrors() {
-    return (
-      <ul className="login-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors.length > 0) {
+      return (
+        <ul className="login-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>{error}</li>
+          ))}
+        </ul>
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -91,18 +95,20 @@ class SessionFrom extends React.Component {
                 />
               </div>
               {this.renderErrors()}
+
               <input
                 type="submit"
                 className="login-signin-button"
                 value={this.props.loginMessage}
               />
+              <button
+                type="button"
+                className="login-signin-button"
+                onClick={this.demoUserLogIn}
+              >
+                <span>Demo User Login</span>
+              </button>
             </form>
-            <button
-              className="login-signin-button"
-              onClick={this.demoUserLogIn}
-            >
-              <span>Demo User Login</span>
-            </button>
             <span className="login-footer">
               By continuing, I accept the Eventmaster terms of service,
               community guidelines and have read the privacy policy.

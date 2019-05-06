@@ -16,7 +16,10 @@ class Event < ApplicationRecord
     validates :title,:description,:event_date,:organizer_id,presence:true 
     validates :title, uniqueness:true
 
-    belongs_to :users, foreign_key: :organizer_id,class_name: :User
+    belongs_to :user,
+    foreign_key: :organizer_id,
+    primary_key: :id,
+    class_name: :User
 
 
 end

@@ -5,7 +5,11 @@ const mapStateToProp = state => {
   const events = Object.keys(state.entities.events).map(
     id => state.entities.events[id]
   );
-  return { events, currentUserId: state.session.currentUserId };
+  return {
+    events,
+    currentUserId: state.session.currentUserId,
+    PageType: "Index"
+  };
   // eventd:state.events
 };
 

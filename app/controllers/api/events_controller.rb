@@ -21,7 +21,8 @@ class Api::EventsController < ApplicationController
 
 
     def update 
-        @event=Event.find(params[:id])
+
+        @event=current_user.events.find(params[:id])
 
         # why do we need to have params[:event][:id]
         @event.update_attributes(event_params)
@@ -33,7 +34,7 @@ class Api::EventsController < ApplicationController
     end 
 
     def destroy
-        @event =Event.find(params[:id])
+        @event =current_user.events.find(params[:id])
         @event.destroy
     end 
 

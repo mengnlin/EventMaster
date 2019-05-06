@@ -20,8 +20,9 @@ export const receiveErrors = errors => ({
   type: RECEIVE_EVENT_ERRORS,
   errors
 });
-export const removeEvent = () => ({
-  type: DELETE_EVENT
+export const removeEvent = id => ({
+  type: DELETE_EVENT,
+  id
 });
 
 export const clearErrors = () => ({
@@ -53,4 +54,7 @@ export const updateEvent = event => dispatch =>
   );
 
 export const deleteEvent = id => dispatch =>
-  APIUtil.deleteEvent(id).then(event => dispatch(removeEvent(id)));
+  APIUtil.deleteEvent(id).then(event => {
+    console.log("abc");
+    dispatch(removeEvent(id));
+  });

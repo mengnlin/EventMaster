@@ -10,6 +10,7 @@ import Home from "./home";
 import { Link } from "react-router-dom";
 import EventShowContainer from "./eventShow/EventShowContainer";
 import EventIndexContainer from "./event_index/EventIndexContainer";
+import MyEventsContainer from "./my_events/MyEventsContainer";
 
 const App = () => (
   <div>
@@ -29,7 +30,7 @@ const App = () => (
         component={UpdateEventFormContainer}
       />
       <Route exact path="/events/:id" component={EventShowContainer} />
-
+      <Route exact path="/myevents" component={MyEventsContainer} />
       <Route exact path="/events" component={EventIndexContainer} />
       <Route exact path="/" component={Home} />
       <Redirect to="/" />
