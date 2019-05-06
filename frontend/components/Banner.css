@@ -1,0 +1,23 @@
+.banner-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-text-container {
+  width: 40%;
+}
+.banner-text-container h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.banner-text-container p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.banner-cover-container {
+  width: 55%;
+  height: 477px;
+}
