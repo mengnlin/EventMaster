@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import EventEditorWrapper from "./EventEditorWrapper";
+import editEventFormData from "./editEventFormData";
 class EventFrom extends React.Component {
   constructor(props) {
     super(props);
@@ -39,24 +41,30 @@ class EventFrom extends React.Component {
       <div>
         <span>{this.props.formType}</span>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.title}
-            placeholder="Event Title"
-            onChange={this.update("title")}
-          />
-          <input
-            type="text"
-            value={this.state.description}
-            placeholder="Event description"
-            onChange={this.update("description")}
-          />
-          <input
-            type="date"
-            value={this.state.event_date}
-            placeholder="Event Date"
-            onChange={this.update("event_date")}
-          />
+          <EventEditorWrapper {...editEventFormData.basicInfo}>
+            <input
+              type="text"
+              value={this.state.title}
+              placeholder="Event Title"
+              onChange={this.update("title")}
+            />
+          </EventEditorWrapper>
+          <EventEditorWrapper {...editEventFormData.location}>
+            <input
+              type="text"
+              value={this.state.description}
+              placeholder="Event description"
+              onChange={this.update("description")}
+            />
+          </EventEditorWrapper>
+          <EventEditorWrapper {...editEventFormData.dateTime}>
+            <input
+              type="date"
+              value={this.state.event_date}
+              placeholder="Event Date"
+              onChange={this.update("event_date")}
+            />
+          </EventEditorWrapper>
           {this.renderErrors()}
           <input type="submit" value={this.props.formType} />
         </form>
