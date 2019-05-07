@@ -65,8 +65,9 @@ class EventFrom extends React.Component {
               placeholder="Event Description"
               onChange={this.update("description")}
             />
+
             <select
-              className={inputstyle}
+              className={customSelect}
               value={this.state.category}
               onChange={this.update("category")}
             >
@@ -101,13 +102,24 @@ class EventFrom extends React.Component {
             />
           </EventEditorWrapper>
           {this.renderErrors()}
-          <input type="submit" value={this.props.formType} />
+          <input
+            type="submit"
+            value={this.props.formType}
+            className={submitButton}
+          />
         </form>
       </div>
     );
   }
 }
 
+const customSelect = css`
+  width: 200px;
+  height: 80;
+  font-size: 16px;
+
+  margin-top: 15px;
+`;
 const formContainer = css`
   margin: 20px auto 0 auto;
   padding: 20px 0 0 48px;
@@ -116,6 +128,25 @@ const formContainer = css`
 
 const inputstyle = css`
   width: 100%;
+  padding: 18px 12px 6px 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+`;
+
+const submitButton = css`
+  width: 320px;
+  height: 44px;
+  background-color: #d1410c;
+  padding: 0 30px 1px;
+  line-height: 24px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 200px;
 `;
 
 export default withRouter(EventFrom);

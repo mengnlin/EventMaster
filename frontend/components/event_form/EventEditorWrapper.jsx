@@ -10,12 +10,9 @@ const wrapperStyle = css`
 
 const iconContainer = css`
   width: 48px;
-  border: 1px solid red;
 `;
 
 const formContainer = css`
-  /* flex-grow: 1; */
-  /* border: 1px solid green; */
   width: 548px;
 `;
 
@@ -34,7 +31,7 @@ const instruction = css`
 `;
 const EventEditorWrapper = ({ title, description, icon, children }) => (
   <section className={wrapperStyle}>
-    <div className={iconContainer} />
+    <div className={iconContainer}>{icon}</div>
     <div className={formContainer}>
       <h3 className={heading}>{title}</h3>
       <p className={instruction}>{description}</p>

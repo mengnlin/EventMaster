@@ -22,8 +22,12 @@ export const fetchCategoryEvents = category =>
     method: "GET",
     url: `/api/events?category=${category}`
   });
+export const fetchPickEvents = () =>
+  $.ajax({
+    method: "GET",
+    url: "/api/events?editorpick=true"
+  });
 
-// window.fetchCategoryEvents = fetchCategoryEvents;
 export const updateEvent = event =>
   $.ajax({
     method: "PATCH",

@@ -14,6 +14,8 @@ class Api::EventsController < ApplicationController
         @events=Event.all
         if params[:category]
             render json: @events.select{|event| event.category==params[:category]}
+        elsif params[:editorpick]
+            render json: @events[0...10]
         end 
     end 
 
