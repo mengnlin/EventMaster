@@ -8,7 +8,14 @@ import EventForm from "./EventForm";
 import React from "react";
 
 const mapStateToProps = (state, ownProps) => {
-  let defaultEvent = { title: "", description: "", event_date: "" };
+  let defaultEvent = {
+    title: "",
+    description: "",
+    event_date: "",
+    time: "",
+    location: "",
+    category: "music"
+  };
   let event = state.entities.events[ownProps.match.params.id] || defaultEvent;
   return { event, formType: "Update Event", errors: state.errors.event };
 };

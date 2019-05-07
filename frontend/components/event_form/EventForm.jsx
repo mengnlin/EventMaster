@@ -3,6 +3,9 @@ import { withRouter } from "react-router-dom";
 import EventEditorWrapper from "./EventEditorWrapper";
 import editEventFormData from "./editEventFormData";
 import { css } from "emotion";
+import { logout } from "../../actions/session_actions";
+import Bar from "../Bar";
+import NavBarButton from "../NavBarButton";
 class EventFrom extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +27,6 @@ class EventFrom extends React.Component {
     e.preventDefault();
     const event = Object.assign({}, this.state);
     this.props.processForm(event).then(event => {
-      console.log(event);
       this.props.history.push(`/events/${event.event.id}`);
     });
   }
@@ -40,7 +42,13 @@ class EventFrom extends React.Component {
   render() {
     return (
       <div>
-        <span>{this.props.formType}</span>
+        <Bar>
+          {/* {this.props.formType === "Update Event" && (
+            <NavBarButton label="Create Event" link="/event/new" />
+          )} */}
+          <NavBarButton label="My Events" link="/myevents" />
+          <NavBarButton label="Sign Out" link="/" onClick={logout} />
+        </Bar>
         <form onSubmit={this.handleSubmit} className={formContainer}>
           <EventEditorWrapper {...editEventFormData.basicInfo}>
             <input
@@ -57,14 +65,23 @@ class EventFrom extends React.Component {
               placeholder="Event Description"
               onChange={this.update("description")}
             />
+            <select
+              className={inputstyle}
+              value={this.state.category}
+              onChange={this.update("category")}
+            >
+              <option value="music">Music</option>
+              <option value="art">Art</option>
+              <option value="food">Food</option>
+            </select>
           </EventEditorWrapper>
           <EventEditorWrapper {...editEventFormData.location}>
             <input
               className={inputstyle}
               type="text"
-              value={this.state.description}
-              placeholder="Event description"
-              onChange={this.update("description")}
+              value={this.state.location}
+              placeholder="Event Location"
+              onChange={this.update("location")}
             />
           </EventEditorWrapper>
           <EventEditorWrapper {...editEventFormData.dateTime}>

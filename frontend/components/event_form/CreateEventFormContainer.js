@@ -6,7 +6,10 @@ const mapStateToProps = state => {
   let event = {
     title: "testing",
     description: "testing tesing",
-    event_date: "01/01/2019"
+    event_date: "01/01/2019",
+    location: "san jose",
+    time: "12:01",
+    category: "music"
   };
   return { event, formType: "Create Event", errors: state.errors.event };
 };

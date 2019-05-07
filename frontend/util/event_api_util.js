@@ -17,6 +17,13 @@ export const createEvent = event =>
     data: event
   });
 
+export const fetchCategoryEvents = category =>
+  $.ajax({
+    method: "GET",
+    url: `/api/events?category=${category}`
+  });
+
+// window.fetchCategoryEvents = fetchCategoryEvents;
 export const updateEvent = event =>
   $.ajax({
     method: "PATCH",
