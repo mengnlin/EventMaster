@@ -9,11 +9,14 @@
 #  organizer_id :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  time         :time
+#  location     :string
+#  category     :string
 #
 
 class Event < ApplicationRecord
 
-    validates :title,:description,:event_date,:organizer_id,presence:true 
+    validates :title,:description,:event_date,:organizer_id,:time,:location,:category,presence:true 
     validates :title, uniqueness:true
 
     belongs_to :user,

@@ -4,6 +4,7 @@
   box-sizing: border-box;
   width: 277px;
   height: 286px;
+  display: inline-block;
 }
 
 .event-tile-inner-container {
@@ -13,7 +14,7 @@
 }
 .event-tile-inner-container:hover {
   border: 0.1px solid #eeedf2;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .event-tile-cover {

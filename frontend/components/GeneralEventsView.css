@@ -1,0 +1,29 @@
+.general-events-container {
+  margin: 20px 0 0 0;
+  padding: 80px 0 80px 0;
+  position: relative;
+}
+
+.general-events-inner {
+  margin: 0;
+  padding: 24px 0 0 0;
+  width: 1026;
+}
+
+.general-events-category {
+  box-sizing: border-box;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  padding: 0 0 8px 0;
+  width: 752px;
+  margin: 0 -0.5px 0 0;
+}
+
+.general-events-view {
+  margin: 0;
+  padding: 0;
+  /* justify-content: space-between; */
+  /* box-flex: wrap; */
+  align-items: flex-start;
+}
