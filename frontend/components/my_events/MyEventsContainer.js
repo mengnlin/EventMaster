@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import React from "react";
 import { Link } from "react-router-dom";
 import { fetchEvents, deleteEvent } from "../../actions/event_actions";
-
+import MyEvent from "./MyEvent";
+import { css } from "emotion";
 const mapStateToProps = state => ({
   ownEvents: state.entities.user.events
 });
@@ -22,18 +23,24 @@ class MyEvents extends React.Component {
     return (
       <ul>
         {this.props.ownEvents.map(event => (
-          <li>
-            <span>{event.title}</span>
-            <Link to={`events/${event.id}/edit`}>Edit</Link>
-            <button onClick={() => this.props.deleteEvent(event.id)}>
-              Delete
-            </button>
+          <li key={event.id} className={deleteDot}>
+            <MyEvent
+              title={event.title}
+              date={event.event_date}
+              time={event.time}
+              eventId={event.id}
+              deleteEvent={this.props.deleteEvent}
+            />
           </li>
         ))}
       </ul>
     );
   }
 }
+
+const deleteDot = css`
+  list-style-type: none;
+`;
 export default connect(
   mapStateToProps,
   mapDispatchToProps

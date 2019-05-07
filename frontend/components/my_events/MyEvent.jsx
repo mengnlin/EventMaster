@@ -1,5 +1,7 @@
 import React from "react";
 import "./MyEvent.css";
+import EventManageBar from "./EventManageBar";
+
 const monthMap = {
   "01": "Jan",
   "02": "Feb",
@@ -14,20 +16,21 @@ const monthMap = {
   "11": "Nov",
   "12": "Dec"
 };
-const MyEvent = ({ title, date, time, eventId }) => {
+const MyEvent = ({ title, date, time, eventId, deleteEvent }) => {
   const year = date.split("-")[0];
   const month = monthMap[date.split("-")[1]];
   const day = date.split("-")[2];
   return (
     <div className="myevent-container">
-      <div className="myevent-view-container">
-        <div className="myevent-details">
-          <p className="myevent-title">{title}</p>
-          <p className="myevent-time">
-            {month} {day},{year} {time}
-          </p>
-        </div>
-        <div myevent-edit-bar />
+      {/* <div className="myevent-view-container"> */}
+      <div className="myevent-details">
+        <p className="myevent-title">{title}</p>
+        <p className="myevent-time">
+          {month} {day},{year} {time}
+        </p>
+      </div>
+      <div>
+        <EventManageBar deleteEvent={deleteEvent} eventId={eventId} />
       </div>
     </div>
   );
