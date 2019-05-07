@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logout } from "../actions/session_actions";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 import Banner from "./Banner";
-import GeneralEventsView from "./GeneraLEventsView";
+import GeneralEventsView from "./GeneralEventsView";
 const mapStateToProps = state => ({
   currentUser: state.entities.user
 });
