@@ -1,6 +1,6 @@
 import React from "react";
 import "./EventTile.css";
-
+import { Link } from "react-router-dom";
 const monthMap = {
   "01": "Jan",
   "02": "Feb",
@@ -15,7 +15,7 @@ const monthMap = {
   "11": "Nov",
   "12": "Dec"
 };
-const EventTile = ({ title, location, date, cover }) => {
+const EventTile = ({ title, location, date, cover, eventId }) => {
   const month = monthMap[date.split("-")[1]];
   const day = date.split("-")[2];
   return (
@@ -31,7 +31,9 @@ const EventTile = ({ title, location, date, cover }) => {
             <p className="event-tile-date">{day}</p>
           </div>
           <div className="event-tile-text-right">
-            <h3>{title}</h3>
+            <Link to={`/events/${eventId}`} className="links">
+              {title}
+            </Link>
             <span className="event-tile-text-right-date-time">{date}</span>
             <span className="event-tile-text-right-location">{location}</span>
           </div>

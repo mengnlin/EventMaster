@@ -1,0 +1,13 @@
+.myevent-container {
+  margin: 10px auto 0 auto;
+  padding: 0 15px 0 15px;
+  line-height: 20px;
+  padding-bottom: 10px;
+  width: 810px;
+  height: 80px;
+  background-color: lightblue;
+}
+
+.myevent-details {
+  color: rgb(54, 89, 227);
+}

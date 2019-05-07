@@ -2,8 +2,8 @@
   padding: 12px 8px;
   margin: 0;
   box-sizing: border-box;
-  width: 277px;
-  height: 286px;
+  max-width: 318px;
+  height: 331px;
   display: inline-block;
 }
 
@@ -67,7 +67,9 @@
   padding: 0 0 0 0;
 }
 
-.event-tile-text-right h3 {
+.links {
+  text-decoration: none;
+  color: black;
   font-size: 18px;
   line-height: 24px;
   margin: 0;

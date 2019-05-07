@@ -13,6 +13,7 @@ const EventsGrid = ({ title, events }) => {
               location={event.location}
               date={event.event_date}
               key={event.id}
+              eventId={event.id}
               cover="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F57940989%2F57416335505%2F1%2Foriginal.20190306-023109?w=512&auto=compress&rect=0%2C0%2C9000%2C4500&s=08481b8b673075ee32a4d075b715b903"
             />
           ))}
