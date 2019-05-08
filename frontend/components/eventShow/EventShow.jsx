@@ -38,6 +38,7 @@ class EventShow extends React.Component {
               <NavBarButton label="Sign Out" link="/" onClick={logout} />
             )}
           </Bar>
+          {/* <div className={EventShowBackground} /> */}
           <div className={EventShowContainer}>
             <EventShowHeading
               title={event.title}
@@ -66,6 +67,10 @@ const EventShowContainer = css`
   padding: 80px 0 80px 0;
   max-width: 1272px;
 `;
+
+// const EventShowBackground = css`
+// background-image:url()
+// `;
 
 // export default EventShow;
 export default withRouter(EventShow);

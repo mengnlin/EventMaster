@@ -5,9 +5,6 @@ const EventShowHeading = ({ title, date, organizer, cover }) => {
   const { month, day } = dateDecomp(date);
   return (
     <div className={eventShowHeadingContainer}>
-      {/* <div className={eventShowHeadingInner}> */}
-
-      {/* <div className={eventShowDateContainer}> */}
       <div className={eventShowImageContainer}>
         <img src={`${cover}`} className={eventShowImage} />
       </div>
@@ -19,8 +16,6 @@ const EventShowHeading = ({ title, date, organizer, cover }) => {
         <h1 className={eventheadingTitle}>{title}</h1>
         <p className={eventheadingOrganizer}>by {organizer}</p>
       </div>
-      {/* </div> */}
-      {/* </div> */}
     </div>
   );
 };
@@ -31,9 +26,8 @@ const eventShowHeadingContainer = css`
   width: 1080px;
   height: 360px;
   position: relative;
-  background-color: lightgreen;
+
   display: flex;
-  justify-content: space-between;
 `;
 
 const eventShowImageContainer = css`
@@ -44,10 +38,10 @@ const eventShowImageContainer = css`
 `;
 
 const eventShowTitleContainer = css`
-  padding: 0;
+  padding-left: 15px;
   margin-right: 15px;
   width: 320px;
-  background-color: lightyellow;
+  background-color: #ebf1f3;
 `;
 
 const eventShowDateContainer = css`
