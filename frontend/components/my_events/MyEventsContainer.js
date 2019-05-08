@@ -8,7 +8,7 @@ import MyEvent from "./MyEvent";
 import { css } from "emotion";
 import Bar from ".././Bar";
 import NavBarButton from "../NavBarButton";
-
+import { timeDecomp } from "../utils";
 const mapStateToProps = state => {
   return {
     ownEvents: state.entities.user.events,
@@ -22,12 +22,6 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-// const Timevari = time => {
-//   time
-//     .split("")
-//     .slice(11, 19)
-//     .join();
-// };
 class MyEvents extends React.Component {
   componentDidMount() {
     this.props.fetchEvents();
@@ -49,12 +43,13 @@ class MyEvents extends React.Component {
           <ul className={deleteDot}>
             {this.props.ownEvents.map(eventId => {
               if (this.props.events[eventId]) {
+                let timeString = timeDecomp(this.props.events[eventId].time);
                 return (
                   <li key={eventId}>
                     <MyEvent
                       title={this.props.events[eventId].title}
                       date={this.props.events[eventId].event_date}
-                      time={this.props.events[eventId].time}
+                      time={timeString}
                       eventId={eventId}
                       deleteEvent={this.props.deleteEvent}
                     />

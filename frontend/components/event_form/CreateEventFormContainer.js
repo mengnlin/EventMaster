@@ -4,11 +4,11 @@ import EventForm from "./EventForm";
 
 const mapStateToProps = state => {
   let event = {
-    title: "testing",
-    description: "testing tesing",
-    event_date: "01/01/2019",
-    location: "san jose",
-    time: "12:01",
+    title: "",
+    description: "",
+    event_date: "",
+    location: "",
+    time: "",
     category: "music"
   };
   return { event, formType: "Create Event", errors: state.errors.event };

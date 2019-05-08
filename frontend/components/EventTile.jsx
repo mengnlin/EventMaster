@@ -1,23 +1,10 @@
 import React from "react";
 import "./EventTile.css";
 import { Link } from "react-router-dom";
-const monthMap = {
-  "01": "Jan",
-  "02": "Feb",
-  "03": "Mar",
-  "04": "Apr",
-  "05": "May",
-  "06": "June",
-  "07": "Jul",
-  "08": "Aug",
-  "09": "Sep",
-  "10": "Oct",
-  "11": "Nov",
-  "12": "Dec"
-};
+import { dateDecomp } from "./utils";
 const EventTile = ({ title, location, date, cover, eventId }) => {
-  const month = monthMap[date.split("-")[1]];
-  const day = date.split("-")[2];
+  const { month, day } = dateDecomp(date);
+
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">

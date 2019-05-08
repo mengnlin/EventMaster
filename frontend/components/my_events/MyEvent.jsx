@@ -2,24 +2,10 @@ import React from "react";
 import "./MyEvent.css";
 import EventManageBar from "./EventManageBar";
 
-const monthMap = {
-  "01": "Jan",
-  "02": "Feb",
-  "03": "Mar",
-  "04": "Apr",
-  "05": "May",
-  "06": "June",
-  "07": "Jul",
-  "08": "Aug",
-  "09": "Sep",
-  "10": "Oct",
-  "11": "Nov",
-  "12": "Dec"
-};
+import { dateDecomp } from "../utils";
+
 const MyEvent = ({ title, date, time, eventId, deleteEvent }) => {
-  const year = date.split("-")[0];
-  const month = monthMap[date.split("-")[1]];
-  const day = date.split("-")[2];
+  const { year, month, day } = dateDecomp(date);
   return (
     <div className="myevent-container">
       {/* <div className="myevent-view-container"> */}

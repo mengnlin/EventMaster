@@ -2,6 +2,7 @@
   margin: 20px auto 0 auto;
   padding: 80px 0 80px 0;
   max-width: 1272px;
+  align-self: center;
 }
 
 .general-events-inner {
@@ -23,7 +24,6 @@
 .general-events-view {
   margin: 0;
   padding: 0;
-  /* justify-content: space-between; */
-  /* box-flex: wrap; */
+
   align-items: flex-start;
 }

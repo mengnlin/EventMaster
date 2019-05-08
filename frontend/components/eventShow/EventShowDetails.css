@@ -1,0 +1,26 @@
+.event-show-detail-container {
+  margin: 0, auto 30px auto;
+  padding: 50px 0 0 0;
+  width: 1080px;
+  position: relative;
+  background-color: lightpink;
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-Show-description-container {
+  /* display: inline-block; */
+  width: 720px;
+  line-height: 20px;
+  margin-left: 15px;
+  padding: 0;
+
+  background-color: lightblue;
+}
+
+.event-show-date-container {
+  background-color: beige;
+  width: 320px;
+  margin: 0 auto 0 auto;
+  padding: 0;
+}

@@ -16,10 +16,9 @@ const EventManageBar = ({ eventId, deleteEvent }) => {
         View
       </Link>
 
-      <button onClick={() => deleteEvent(eventId)} className={deleteButton}>
-        {" "}
+      <a onClick={() => deleteEvent(eventId)} className={deleteButton}>
         Delete
-      </button>
+      </a>
     </div>
   );
 };
@@ -41,6 +40,7 @@ const EventEditButton = css`
 const deleteButton = css`
   color: #6f7287;
   cursor: pointer;
+  font-size: 14px;
 `;
 const image = css`
   width: 15px;

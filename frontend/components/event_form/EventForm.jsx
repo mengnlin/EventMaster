@@ -125,9 +125,11 @@ const formContainer = css`
 
 const inputstyle = css`
   width: 100%;
-  padding: 18px 12px 6px 12px;
+  font-size: 14px;
+  padding: 0px 12px 0px 12px;
   margin-top: 15px;
   margin-bottom: 15px;
+  height: 41px;
 `;
 
 const submitButton = css`
