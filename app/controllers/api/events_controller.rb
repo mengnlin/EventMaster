@@ -12,7 +12,11 @@ class Api::EventsController < ApplicationController
     end 
     def index 
         @events=Event.all
-        # render JSON :index
+        if params[:category]
+            render json: @events.select{|event| event.category==params[:category]}
+        elsif params[:editorpick]
+            render json: @events[0...10]
+        end 
     end 
 
     def show 
@@ -40,7 +44,7 @@ class Api::EventsController < ApplicationController
 
     private 
     def event_params 
-        params.permit(:title,:description,:event_date)
+        params.permit(:title,:description,:event_date,:location,:time,:category)
     end  
 
 end

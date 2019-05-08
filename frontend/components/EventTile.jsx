@@ -1,6 +1,10 @@
 import React from "react";
 import "./EventTile.css";
-const EventTile = ({ month, date, title, location, date_time, cover }) => {
+import { Link } from "react-router-dom";
+import { dateDecomp } from "./utils";
+const EventTile = ({ title, location, date, cover, eventId }) => {
+  const { month, day } = dateDecomp(date);
+
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">
@@ -11,12 +15,14 @@ const EventTile = ({ month, date, title, location, date_time, cover }) => {
         <div className="event-tile-text-container">
           <div className="event-tile-text-left">
             <p className="event-tile-month">{month}</p>
-            <p className="event-tile-date">{date}</p>
+            <p className="event-tile-date">{day}</p>
           </div>
           <div className="event-tile-text-right">
-            <h3>{title}</h3>
-            <span class="event-tile-text-right-date-time">{date_time}</span>
-            <span class="event-tile-text-right-location">{location}</span>
+            <Link to={`/events/${eventId}`} className="links">
+              {title}
+            </Link>
+            <span className="event-tile-text-right-date-time">{date}</span>
+            <span className="event-tile-text-right-location">{location}</span>
           </div>
         </div>
       </div>

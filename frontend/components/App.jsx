@@ -8,7 +8,7 @@ import CreateEventFormContainer from "./event_form/CreateEventFormContainer";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Home from "./home";
 import { Link } from "react-router-dom";
-import EventShowContainer from "./eventShow/EventShowContainer";
+import EventShow from "./eventShow/EventShow";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 import MyEventsContainer from "./my_events/MyEventsContainer";
 
@@ -29,7 +29,7 @@ const App = () => (
         path="/events/:id/edit"
         component={UpdateEventFormContainer}
       />
-      <Route exact path="/events/:id" component={EventShowContainer} />
+      <Route exact path="/events/:id" component={EventShow} />
       <Route exact path="/myevents" component={MyEventsContainer} />
       <Route exact path="/events" component={EventIndexContainer} />
       <Route exact path="/" component={Home} />

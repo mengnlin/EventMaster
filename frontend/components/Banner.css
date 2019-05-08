@@ -1,6 +1,9 @@
 .banner-container {
   display: flex;
   justify-content: space-between;
+  max-width: 1272px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .banner-text-container {
@@ -20,4 +23,5 @@
 .banner-cover-container {
   width: 55%;
   height: 477px;
+  /* flex-grow: 1; */
 }

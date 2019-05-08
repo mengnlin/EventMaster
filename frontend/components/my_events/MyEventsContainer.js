@@ -3,37 +3,83 @@ import { connect } from "react-redux";
 import React from "react";
 import { Link } from "react-router-dom";
 import { fetchEvents, deleteEvent } from "../../actions/event_actions";
-
-const mapStateToProps = state => ({
-  ownEvents: state.entities.user.events
-});
+import { logout } from "../../actions/session_actions";
+import MyEvent from "./MyEvent";
+import { css } from "emotion";
+import Bar from ".././Bar";
+import NavBarButton from "../NavBarButton";
+import { timeDecomp } from "../utils";
+const mapStateToProps = state => {
+  return {
+    ownEvents: state.entities.user.events,
+    events: state.entities.events
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchEvents: () => dispatch(fetchEvents()),
-  deleteEvent: id => dispatch(deleteEvent(id))
+  deleteEvent: id => dispatch(deleteEvent(id)),
+  logout: () => dispatch(logout())
 });
 
 class MyEvents extends React.Component {
   componentDidMount() {
     this.props.fetchEvents();
   }
-
   render() {
+    if (Object.keys(this.props.events).length === 0) {
+      return null;
+    }
+
     return (
-      <ul>
-        {this.props.ownEvents.map(event => (
-          <li>
-            <span>{event.title}</span>
-            <Link to={`events/${event.id}/edit`}>Edit</Link>
-            <button onClick={() => this.props.deleteEvent(event.id)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <Bar>
+          <NavBarButton label="Create Event" link="/event/new" />
+          <NavBarButton label="Sign Out" link="/" onClick={this.props.logout} />
+        </Bar>
+
+        <div>
+          <h1 className={myEventsHeading}>Manage Events</h1>
+          <ul className={deleteDot}>
+            {this.props.ownEvents.map(eventId => {
+              if (this.props.events[eventId]) {
+                let timeString = timeDecomp(this.props.events[eventId].time);
+                return (
+                  <li key={eventId}>
+                    <MyEvent
+                      title={this.props.events[eventId].title}
+                      date={this.props.events[eventId].event_date}
+                      time={timeString}
+                      eventId={eventId}
+                      deleteEvent={this.props.deleteEvent}
+                    />
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        </div>
+      </div>
     );
   }
+  // }
 }
+
+const myEventsHeading = css`
+  font-size: 32px;
+  margin: 10px auto 0 auto;
+  padding: 20px 0 0px 0;
+  line-height: 20px;
+  max-width: 812px;
+  height: 80px;
+`;
+
+const deleteDot = css`
+  list-style-type: none;
+  /* list-style-position: inside; */
+  margin: 0;
+  padding: 0;
+`;
 export default connect(
   mapStateToProps,
   mapDispatchToProps
