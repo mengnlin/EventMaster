@@ -15,7 +15,6 @@ const userReducer = (state = null, action) => {
     case DELETE_EVENT:
       let newstate = Object.assign({}, state);
       newstate.events = newstate.events.filter(event => event.id !== action.id);
-      // delete newstate.events[action.id];
       return newstate;
     default:
       return state;

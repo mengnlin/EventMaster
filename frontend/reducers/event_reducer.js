@@ -11,11 +11,7 @@ const eventReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_EVENT:
       return merge({}, state, { [action.event.id]: action.event });
     case RECEIVE_ALL_EVENTS:
-      let newevents = {};
-      action.events.forEach(event => {
-        newevents[event.id] = event;
-      });
-      return newevents;
+      return action.events;
     case LOGOUT_CURRENT_USER:
       return {};
     case DELETE_EVENT:

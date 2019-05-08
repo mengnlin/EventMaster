@@ -57,3 +57,19 @@ export const deleteEvent = id => dispatch =>
   APIUtil.deleteEvent(id).then(() => {
     dispatch(removeEvent(id));
   });
+
+// export const fetchPickEvents = () => dispatch =>
+//   APIUtil.fetchPickEvents().then(() => {
+//     dispatch(receiveAllEvents());
+//   });
+
+// export const fetchCategoryEvents = () => dispatch =>
+//   APIUtil.fetchCategoryEvents().then(() => dispatch(receiveAllEvents()));
+
+// if (this.props.isEditorPick) {
+//   events => this.setState({ events }));
+// } else {
+//   fetchCategoryEvents(this.props.category).then(events =>
+//     this.setState({ events })
+//   );
+// }

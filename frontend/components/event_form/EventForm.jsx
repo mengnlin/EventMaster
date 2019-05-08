@@ -43,9 +43,6 @@ class EventFrom extends React.Component {
     return (
       <div>
         <Bar>
-          {/* {this.props.formType === "Update Event" && (
-            <NavBarButton label="Create Event" link="/event/new" />
-          )} */}
           <NavBarButton label="My Events" link="/myevents" />
           <NavBarButton label="Sign Out" link="/" onClick={logout} />
         </Bar>
