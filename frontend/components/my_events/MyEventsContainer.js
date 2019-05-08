@@ -8,8 +8,8 @@ import MyEvent from "./MyEvent";
 import { css } from "emotion";
 import Bar from ".././Bar";
 import NavBarButton from "../NavBarButton";
+
 const mapStateToProps = state => {
-  // debugger;
   return {
     ownEvents: state.entities.user.events,
     events: state.entities.events
@@ -30,48 +30,44 @@ const mapDispatchToProps = dispatch => ({
 // };
 class MyEvents extends React.Component {
   componentDidMount() {
-    this.props.fetchEvents().then(events => this.setState({ events }));
+    this.props.fetchEvents();
   }
-
   render() {
-    //|| !this.props.ownEvents
-    if (this.props.events === {}) {
-      return <h1>Hi GG</h1>;
-    } else {
-      // const sth = this.props.events.isEmpty? {} : thatone;
-
-      return (
-        <div>
-          <Bar>
-            <NavBarButton label="Create Event" link="/event/new" />
-            <NavBarButton
-              label="Sign Out"
-              link="/"
-              onClick={this.props.logout}
-            />
-          </Bar>
-
-          <div>
-            <h1 className={myEventsHeading}>Manage Events</h1>
-            <ul className={deleteDot}>
-              {this.props.ownEvents.map(eventId => {
-                <li key={this.props.events[eventId]}>
-                  <MyEvent
-                    title={this.props.events[eventId].title}
-                    date={this.props.events[eventId].event_date}
-                    time="01:01:12"
-                    // {timevari(event.time)}
-                    eventId={eventId}
-                    deleteEvent={this.props.deleteEvent}
-                  />
-                </li>;
-              })}
-            </ul>
-          </div>
-        </div>
-      );
+    if (Object.keys(this.props.events).length === 0) {
+      return null;
     }
+
+    return (
+      <div>
+        <Bar>
+          <NavBarButton label="Create Event" link="/event/new" />
+          <NavBarButton label="Sign Out" link="/" onClick={this.props.logout} />
+        </Bar>
+
+        <div>
+          <h1 className={myEventsHeading}>Manage Events</h1>
+          <ul className={deleteDot}>
+            {this.props.ownEvents.map(eventId => {
+              if (this.props.events[eventId]) {
+                return (
+                  <li key={eventId}>
+                    <MyEvent
+                      title={this.props.events[eventId].title}
+                      date={this.props.events[eventId].event_date}
+                      time={this.props.events[eventId].time}
+                      eventId={eventId}
+                      deleteEvent={this.props.deleteEvent}
+                    />
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        </div>
+      </div>
+    );
   }
+  // }
 }
 
 const myEventsHeading = css`
