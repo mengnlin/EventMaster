@@ -19,6 +19,7 @@ class GeneralEventsView extends React.Component {
     }
   }
   render() {
+    // console.log(this.state.events);
     return <EventsGrid title={this.props.title} events={this.state.events} />;
   }
 }

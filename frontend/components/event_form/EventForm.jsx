@@ -10,9 +10,9 @@ class EventFrom extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event;
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.previewPhoto = this.previewPhoto.bind(this);
   }
 
   componentWillUnmount() {
@@ -23,10 +23,34 @@ class EventFrom extends React.Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  previewPhoto(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () =>
+      this.setState({ imageUrl: reader.result, imageFile: file });
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const event = Object.assign({}, this.state);
-    this.props.processForm(event).then(event => {
+    const formData = new FormData();
+    formData.append("title", this.state.title);
+    formData.append("description", this.state.description);
+    formData.append("event_date", this.state.event_date);
+    formData.append("location", this.state.location);
+    formData.append("time", this.state.time);
+    formData.append("category", this.state.category);
+    if (this.state.imageFile) {
+      formData.append("picture", this.state.imageFile);
+    }
+
+    // const event = Object.assign({}, this.state);
+    this.props.processForm(formData).then(event => {
       this.props.history.push(`/events/${event.event.id}`);
     });
   }
@@ -98,6 +122,13 @@ class EventFrom extends React.Component {
               onChange={this.update("time")}
             />
           </EventEditorWrapper>
+          <img src={`${this.state.imageUrl}`} />
+          <input
+            type="file"
+            // value={this.state.imageUrl}
+            onChange={this.previewPhoto}
+            accept="image/png, image/jpeg"
+          />
           {this.renderErrors()}
           <input
             type="submit"

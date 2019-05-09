@@ -28,39 +28,59 @@ class MyEvents extends React.Component {
   }
   render() {
     if (Object.keys(this.props.events).length === 0) {
-      return null;
-    }
-
-    return (
-      <div>
-        <Bar>
-          <NavBarButton label="Create Event" link="/event/new" />
-          <NavBarButton label="Sign Out" link="/" onClick={this.props.logout} />
-        </Bar>
-
-        <div>
+      return (
+        <>
+          <Bar>
+            <NavBarButton label="Create Event" link="/event/new" />
+            <NavBarButton
+              label="Sign Out"
+              link="/"
+              onClick={this.props.logout}
+            />
+          </Bar>
           <h1 className={myEventsHeading}>Manage Events</h1>
-          <ul className={deleteDot}>
-            {this.props.ownEvents.map(eventId => {
-              if (this.props.events[eventId]) {
-                let timeString = timeDecomp(this.props.events[eventId].time);
-                return (
-                  <li key={eventId}>
-                    <MyEvent
-                      title={this.props.events[eventId].title}
-                      date={this.props.events[eventId].event_date}
-                      time={timeString}
-                      eventId={eventId}
-                      deleteEvent={this.props.deleteEvent}
-                    />
-                  </li>
+        </>
+      );
+    } else {
+      return (
+        <div>
+          <Bar>
+            <NavBarButton label="Create Event" link="/event/new" />
+            <NavBarButton
+              label="Sign Out"
+              link="/"
+              onClick={this.props.logout}
+            />
+          </Bar>
+
+          <div>
+            <h1 className={myEventsHeading}>Manage Events</h1>
+            <ul className={deleteDot}>
+              {this.props.ownEvents.map(eventId => {
+                const currentEvent = this.props.events.find(
+                  event => event.id === eventId
                 );
-              }
-            })}
-          </ul>
+
+                if (currentEvent) {
+                  let timeString = timeDecomp(currentEvent.time);
+                  return (
+                    <li key={eventId}>
+                      <MyEvent
+                        title={currentEvent.title}
+                        date={currentEvent.event_date}
+                        time={timeString}
+                        eventId={eventId}
+                        deleteEvent={this.props.deleteEvent}
+                      />
+                    </li>
+                  );
+                }
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
   // }
 }

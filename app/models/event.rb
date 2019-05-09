@@ -24,5 +24,7 @@ class Event < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
+    has_one_attached :picture
+
 
 end
