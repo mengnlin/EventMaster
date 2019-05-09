@@ -9,11 +9,14 @@ const EventTile = ({ title, location, date, cover, eventId }) => {
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">
-        {cover ? (
-          <img src={`${cover}`} className="event-tile-cover" />
-        ) : (
-          <div />
-        )}
+        {/* <div> */}
+        <Link to={`/events/${eventId}`}>
+          {cover ? (
+            <img src={`${cover}`} className="event-tile-cover" />
+          ) : (
+            <div />
+          )}
+        </Link>
         <div className="event-tile-text-container">
           <div className="event-tile-text-left">
             <p className="event-tile-month">{month}</p>

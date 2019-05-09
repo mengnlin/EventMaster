@@ -79,9 +79,6 @@
   font-weight: 700;
 }
 
-/* span {
-  font-family: "Neue Plak";
-} */
 .login-footer {
   text-align: center;
   color: gray;
@@ -89,6 +86,5 @@
 }
 body {
   margin: 0;
-  font-family: Neue Plak, -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
 }

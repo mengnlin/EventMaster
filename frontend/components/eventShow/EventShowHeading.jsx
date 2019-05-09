@@ -33,6 +33,8 @@ const eventShowHeadingContainer = css`
 const eventShowImageContainer = css`
   height: 360px;
   width: 720px;
+  /* border: 1px solid grey; */
+
   padding: 0;
   margin: 0;
 `;
@@ -42,6 +44,7 @@ const eventShowTitleContainer = css`
   margin-right: 15px;
   width: 320px;
   background-color: #ebf1f3;
+  border-radius: 0px 5px 0px 0px;
 `;
 
 const eventShowDateContainer = css`
@@ -53,6 +56,7 @@ const eventShowImage = css`
   height: 100%;
   width: 100%;
   border-image-repeat: strech;
+  border-radius: 5px 0 0 0px;
 `;
 const eventheadingdate = css`
   font-size: 17px;
