@@ -16,17 +16,19 @@ const mapStateToProps = (state, ownProps) => {
     location: "",
     category: "music"
   };
-  let event =
-    state.entities.events.find(
-      event => "" + event.id === ownProps.match.params.id
-    ) || defaultEvent;
-  // console.log(event);
-  // console.log(event.id);
-  return { event, formType: "Update Event", errors: state.errors.event };
+  // let event =
+  //   state.entities.events.find(
+  //     event => "" + event.id === ownProps.match.params.id
+  //   ) || defaultEvent;
+  return {
+    event: state.entities.events[ownProps.match.params.id],
+    formType: "Update Event",
+    errors: state.errors.event
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
-  processForm: event => dispatch(updateEvent(event)),
+  processForm: (event, id) => dispatch(updateEvent(event, id)),
   clearErrors: () => dispatch(clearErrors()),
   fetchEvent: id => dispatch(fetchEvent(id))
 });
@@ -38,13 +40,12 @@ class EditEventForm extends React.Component {
 
   render() {
     const { event, formType, processForm, errors, clearErrors } = this.props;
-    const processFormWithID = event =>
-      processForm({ ...event, id: this.props.match.params.id });
+    // processForm({ ...event, id: this.props.match.params.id });
     return (
       <EventForm
         event={event}
         formType={formType}
-        processForm={processFormWithID}
+        processForm={processForm}
         errors={errors}
         clearErrors={clearErrors}
       />

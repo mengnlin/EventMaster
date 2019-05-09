@@ -2,12 +2,13 @@ import React from "react";
 import "./GeneralEventsView.css";
 import EventTile from "./EventTile";
 const EventsGrid = ({ title, events }) => {
+  let eventsArray = Object.values(events);
   return (
     <div className="general-events-container">
       <div className="general-events-inner">
         <div className="general-events-category">{title}</div>
         <div className="general-events-view">
-          {events.map(event => (
+          {eventsArray.map(event => (
             <EventTile
               title={event.title}
               location={event.location}

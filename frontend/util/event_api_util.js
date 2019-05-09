@@ -34,14 +34,17 @@ export const fetchPickEvents = () =>
     processData: false
   });
 
-export const updateEvent = event =>
-  $.ajax({
+export const updateEvent = (event, id) => {
+  debugger;
+
+  return $.ajax({
     method: "PATCH",
-    url: `/api/events/${event.id}`,
+    url: `/api/events/${id}`,
     data: event,
     contentType: false,
     processData: false
   });
+};
 
 export const deleteEvent = id =>
   $.ajax({

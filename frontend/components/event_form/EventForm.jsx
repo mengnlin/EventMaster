@@ -6,10 +6,11 @@ import { css } from "emotion";
 import { logout } from "../../actions/session_actions";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
-class EventFrom extends React.Component {
+class EventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event;
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.previewPhoto = this.previewPhoto.bind(this);
@@ -38,6 +39,7 @@ class EventFrom extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // debugger;
     const formData = new FormData();
     formData.append("title", this.state.title);
     formData.append("description", this.state.description);
@@ -45,14 +47,19 @@ class EventFrom extends React.Component {
     formData.append("location", this.state.location);
     formData.append("time", this.state.time);
     formData.append("category", this.state.category);
+    if (this.props.formType === "Update Event") {
+      debugger;
+      formData.append("id", this.state.id);
+    }
+    // debugger;
     if (this.state.imageFile) {
       formData.append("picture", this.state.imageFile);
     }
-
-    // const event = Object.assign({}, this.state);
-    this.props.processForm(formData).then(event => {
-      this.props.history.push(`/events/${event.event.id}`);
-    });
+    console.log(this.state);
+    // console.log(formData);
+    this.props
+      .processForm(formData, this.state.id)
+      .then(event => this.props.history.push(`/events/${event.event.id}`));
   }
   renderErrors() {
     return (
@@ -179,4 +186,4 @@ const submitButton = css`
   margin-left: 200px;
 `;
 
-export default withRouter(EventFrom);
+export default withRouter(EventForm);

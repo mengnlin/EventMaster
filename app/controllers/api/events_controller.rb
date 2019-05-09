@@ -26,6 +26,7 @@ class Api::EventsController < ApplicationController
 
     def update 
 
+        debugger
         @event=current_user.events.find(params[:id])
         @event.update_attributes(event_params)
         if @event.save 
@@ -42,7 +43,7 @@ class Api::EventsController < ApplicationController
 
     private 
     def event_params 
-        params.permit(:title,:description,:event_date,:location,:time,:category,:picture)
+        params.permit(:id,:title,:description,:event_date,:location,:time,:category,:picture)
     end  
 
 end

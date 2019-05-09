@@ -12,7 +12,7 @@ import { timeDecomp } from "../utils";
 const mapStateToProps = state => {
   return {
     ownEvents: state.entities.user.events,
-    events: state.entities.events
+    events: Object.values(state.entities.events)
   };
 };
 

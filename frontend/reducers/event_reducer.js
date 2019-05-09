@@ -5,25 +5,21 @@ import {
   DELETE_EVENT
 } from "../actions/event_actions";
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
-const eventReducer = (eventArray = [], action) => {
-  Object.freeze(eventArray);
+const eventReducer = (state = {}, action) => {
+  Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_EVENT:
-      return eventArray.map(event => {
-        if (event.id === action.event.id) {
-          return action.event;
-        } else {
-          return event;
-        }
-      });
+      return Object.assign({}, state, { [action.event.id]: action.event });
     case RECEIVE_ALL_EVENTS:
       return action.events;
     case LOGOUT_CURRENT_USER:
-      return [];
+      return {};
     case DELETE_EVENT:
-      return eventArray.filter(event => event.id !== action.id);
+      let newstate = Object.assign({}, state);
+      delete newstate[action.id];
+      return newstate;
     default:
-      return eventArray;
+      return state;
   }
 };
 
