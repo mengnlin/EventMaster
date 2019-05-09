@@ -6,6 +6,17 @@ import EventShowDetails from "./EventShowDetails";
 import { css } from "emotion";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
+import { connect } from "react-redux";
+import { logout } from "../../actions/session_actions";
+
+const mapStateToProps = state => ({
+  currentUser: state.entities.user && state.entities.user.id
+});
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout())
+});
+
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
@@ -22,20 +33,20 @@ class EventShow extends React.Component {
       return (
         <>
           <Bar>
-            {!!this.state.username || (
+            {!!this.props.currentUser || (
               <NavBarButton label="Sign In" link="/login" />
             )}
-            {!!this.state.username || (
+            {!!this.props.currentUser || (
               <NavBarButton label="Sign Up" link="/signup" />
             )}
-            {this.state.username && (
+            {this.props.currentUser && (
               <NavBarButton label="Create Event" link="/event/new" />
             )}
-            {this.state.username && (
+            {this.props.currentUser && (
               <NavBarButton label="My Events" link="/myevents" />
             )}
-            {this.state.username && (
-              <NavBarButton label="Sign Out" link="/" onClick={logout} />
+            {this.props.currentUser && (
+              <NavBarButton label="Sign Out" onClick={this.props.logout} />
             )}
           </Bar>
           {/* <div className={EventShowBackground} /> */}
@@ -73,4 +84,8 @@ const EventShowContainer = css`
 // `;
 
 // export default EventShow;
-export default withRouter(EventShow);
+const ConnectedEventShow = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EventShow);
+export default withRouter(ConnectedEventShow);

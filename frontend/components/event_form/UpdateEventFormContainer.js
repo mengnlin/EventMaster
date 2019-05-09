@@ -16,7 +16,12 @@ const mapStateToProps = (state, ownProps) => {
     location: "",
     category: "music"
   };
-  let event = state.entities.events[ownProps.match.params.id] || defaultEvent;
+  let event =
+    state.entities.events.find(
+      event => "" + event.id === ownProps.match.params.id
+    ) || defaultEvent;
+  // console.log(event);
+  // console.log(event.id);
   return { event, formType: "Update Event", errors: state.errors.event };
 };
 

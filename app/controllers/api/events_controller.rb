@@ -4,8 +4,6 @@ class Api::EventsController < ApplicationController
     def create 
         @event =Event.create(event_params)
         @event.organizer_id = current_user.id
-        # @event.picture.attach(io: params[:picture], filename:'event_photos')
-        # debugger;
         if @event.save
             render 'api/events/show'
         else  
