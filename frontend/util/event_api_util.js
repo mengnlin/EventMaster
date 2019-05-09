@@ -14,25 +14,33 @@ export const createEvent = event =>
   $.ajax({
     method: "POST",
     url: "/api/events",
-    data: event
+    data: event,
+    contentType: false,
+    processData: false
   });
 
 export const fetchCategoryEvents = category =>
   $.ajax({
     method: "GET",
-    url: `/api/events?category=${category}`
+    url: `/api/events?category=${category}`,
+    contentType: false,
+    processData: false
   });
 export const fetchPickEvents = () =>
   $.ajax({
     method: "GET",
-    url: "/api/events?editorpick=true"
+    url: "/api/events?editorpick=true",
+    contentType: false,
+    processData: false
   });
 
 export const updateEvent = event =>
   $.ajax({
     method: "PATCH",
     url: `/api/events/${event.id}`,
-    data: event
+    data: event,
+    contentType: false,
+    processData: false
   });
 
 export const deleteEvent = id =>

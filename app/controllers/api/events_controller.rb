@@ -4,6 +4,8 @@ class Api::EventsController < ApplicationController
     def create 
         @event =Event.create(event_params)
         @event.organizer_id = current_user.id
+        # @event.picture.attach(io: params[:picture], filename:'event_photos')
+        # debugger;
         if @event.save
             render 'api/events/show'
         else  
@@ -13,10 +15,10 @@ class Api::EventsController < ApplicationController
     def index 
         @events=Event.all
         if params[:category]
-            render json: @events.select{|event| event.category==params[:category]}
+            @events = @events.select{|event| event.category==params[:category]}
         elsif params[:editorpick]
-            render json: @events[0...10]
-        end 
+            @events = @events[0...10]
+        end
     end 
 
     def show 
@@ -27,8 +29,6 @@ class Api::EventsController < ApplicationController
     def update 
 
         @event=current_user.events.find(params[:id])
-
-        # why do we need to have params[:event][:id]
         @event.update_attributes(event_params)
         if @event.save 
             render 'api/events/show' 
@@ -44,7 +44,7 @@ class Api::EventsController < ApplicationController
 
     private 
     def event_params 
-        params.permit(:title,:description,:event_date,:location,:time,:category)
+        params.permit(:title,:description,:event_date,:location,:time,:category,:picture)
     end  
 
 end

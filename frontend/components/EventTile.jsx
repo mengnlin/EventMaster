@@ -5,13 +5,15 @@ import { dateDecomp } from "./utils";
 const EventTile = ({ title, location, date, cover, eventId }) => {
   const { month, day } = dateDecomp(date);
 
+  // console.log(cover);
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">
-        <div
-          style={{ background: `url(${cover})`, backgroundSize: "cover" }}
-          className="event-tile-cover"
-        />
+        {cover ? (
+          <img src={`${cover}`} className="event-tile-cover" />
+        ) : (
+          <div />
+        )}
         <div className="event-tile-text-container">
           <div className="event-tile-text-left">
             <p className="event-tile-month">{month}</p>
