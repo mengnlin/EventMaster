@@ -15,6 +15,7 @@
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "react-search": "^2.1.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -43,13 +44,14 @@
     "npm": "6.4.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "style-loader": "^0.23.1",
-    "@storybook/react": "^5.0.11",
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addons": "^5.0.11"
+    "style-loader": "^0.23.1"
   }
 }

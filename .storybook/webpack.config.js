@@ -10,6 +10,16 @@ module.exports = {
   plugins: [
     // your custom plugins
   ],
+
+  // plugins: ["@babel/plugin-proposal-class-properties"],
+  // plugins: [
+  //   [
+  //     "@babel/plugin-proposal-class-properties",
+  //     {
+  //       loose: true
+  //     }
+  //   ]
+  // ],
   module: {
     rules: [
       {

@@ -33,9 +33,17 @@ const Footer = () => {
 };
 
 const FooterContainer = css`
-  background: rgb(249, 229, 202);
+  background: #d1410b;
+  /* rgb(247, 129, 56); */
   height: 100px;
   display: flex;
+  /* position: absolute; */
+  margin-top: 200px;
+  /* justify-content: fle; */
+  /* bottom: 0;
+  flex: 1; */
+  /* margin-bottom: 36;  */
+  /* margin-top: 200px; */
 `;
 
 const innerContainer = css`
@@ -53,7 +61,7 @@ const SignatureContainer = css`
 `;
 const Signature = css`
   padding-top: 50px;
-  color: rgb(130, 91, 41);
+  color: gb(232, 221, 218);
   margin: 5px 0 0 0;
   font-size: 18px;
   font-family: "Baloo", cursive;

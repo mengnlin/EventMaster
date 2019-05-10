@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import EventShow from "./eventShow/EventShow";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 import MyEventsContainer from "./my_events/MyEventsContainer";
-
+import Footer from "./Footer";
 const App = () => (
   <div>
     {/* // <Link to="/event/new">new event</Link>
@@ -35,6 +35,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Redirect to="/" />
     </Switch>
+    <Footer />
   </div>
 );
 
