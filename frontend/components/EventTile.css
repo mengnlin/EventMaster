@@ -5,6 +5,10 @@
   height: 255px;
   display: inline-block;
 }
+
+.event-tile-inner-container {
+  width: 253px;
+}
 .event-tile-inner-container:hover {
   border: 0.1px solid #eeedf2;
 }
@@ -14,23 +18,24 @@
   position: relative;
   border-radius: 4px;
   line-height: 22px;
-  width: 253px;
+  height: 127px;
+  width: 100%;
   padding-top: 0px;
 }
 
 .event-tile-text-container {
   padding: 24px;
-  width: 205px;
+  width: 100%;
   height: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .event-tile-text-left {
   width: 24px;
   height: 80px;
-  margin: 0;
+  margin-right: 15px;
   padding: 0 16px 0 0;
   display: inline-block;
 }

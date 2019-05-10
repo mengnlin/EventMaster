@@ -49,7 +49,13 @@ class EventShow extends React.Component {
               <NavBarButton label="Sign Out" onClick={this.props.logout} />
             )}
           </Bar>
-          {/* <div className={EventShowBackground} /> */}
+          <div
+            className={backgroundImage}
+            style={{
+              background: `url(${event.pictureUrl})`,
+              backgroundSize: "cover"
+            }}
+          />
           <div className={EventShowContainer}>
             <EventShowHeading
               title={event.title}
@@ -73,6 +79,14 @@ class EventShow extends React.Component {
   }
 }
 
+const backgroundImage = css`
+  width: 100%;
+  height: 650px;
+  background-color: black;
+  filter: blur(12px);
+  position: absolute;
+  overflow: hidden;
+`;
 const EventShowContainer = css`
   margin: 20px auto 0 auto;
   display: flex;
@@ -82,11 +96,6 @@ const EventShowContainer = css`
   max-width: 1272px;
 `;
 
-// const EventShowBackground = css`
-// background-image:url()
-// `;
-
-// export default EventShow;
 const ConnectedEventShow = connect(
   mapStateToProps,
   mapDispatchToProps

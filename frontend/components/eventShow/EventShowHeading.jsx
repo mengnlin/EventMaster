@@ -21,12 +21,11 @@ const EventShowHeading = ({ title, date, organizer, cover }) => {
 };
 
 const eventShowHeadingContainer = css`
-  margin: 0, auto 30px auto;
+  margin: 0 auto 0 auto;
   padding: 0;
   width: 1080px;
   height: 360px;
   position: relative;
-
   display: flex;
 `;
 
@@ -41,8 +40,8 @@ const eventShowImageContainer = css`
 
 const eventShowTitleContainer = css`
   padding-left: 15px;
-  margin-right: 15px;
-  width: 320px;
+  /* margin-right: 15px; */
+  flex-grow: 1;
   background-color: #ebf1f3;
   border-radius: 0px 5px 0px 0px;
 `;

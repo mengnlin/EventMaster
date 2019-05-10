@@ -3,25 +3,22 @@
   padding: 50px 0 0 0;
   width: 1080px;
   position: relative;
-  /* background-color: lightpink; */
+  background-color: white;
   display: flex;
   justify-content: space-between;
   border: 0.5px, solid, lightslategrey;
 }
 
 .event-Show-description-container {
-  /* display: inline-block; */
   width: 720px;
   line-height: 20px;
-  margin-left: 15px;
-  padding: 0;
-
-  /* background-color: lightblue; */
+  padding: 0px 15px 0 15px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .event-show-date-container {
-  /* background-color: beige; */
-  width: 320px;
+  flex-grow: 1;
   margin: 0 auto 0 auto;
-  padding: 0;
+  padding-left: 15px;
 }
