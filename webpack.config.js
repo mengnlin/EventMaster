@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/event_master.jsx",
   output: {
-    path: path.resolve(__dirname, "public", "assets"),
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js",
     publicPath: "/assets/"
   },
