@@ -6,9 +6,11 @@
 }
 
 .general-events-inner {
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 0; */
   padding: 24px 0 0 0;
-  width: 1026;
+  width: 100%;
 }
 
 .general-events-category {
@@ -22,8 +24,9 @@
 }
 
 .general-events-view {
-  margin: 0;
-  padding: 0;
-
-  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-column-gap: 25px; */
 }

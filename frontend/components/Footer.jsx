@@ -5,13 +5,13 @@ const Footer = () => {
     <div className={FooterContainer}>
       <div className={innerContainer}>
         <div className={IconContainer}>
-          <img src="javascript.png" className={GithubIcon} />
+          <img src="javaScript.png" className={GithubIcon} />
         </div>
         <div className={IconContainer}>
-          <img src="ruby.png" className={GithubIcon} />
+          <img src="rails.jpg" className={GithubIcon} />
         </div>
         <div className={IconContainer}>
-          <img src="React.png" className={GithubIcon} />
+          <img src="react.png" className={GithubIcon} />
         </div>
         <div className={IconContainer}>
           <a href="https://www.linkedin.com/in/mengna-lin/">
@@ -33,7 +33,7 @@ const Footer = () => {
 };
 
 const FooterContainer = css`
-  background: #d1410b;
+  /* background: #d1410b; */
   /* rgb(247, 129, 56); */
   height: 100px;
   display: flex;

@@ -75,6 +75,9 @@ class EventShow extends React.Component {
 
 const EventShowContainer = css`
   margin: 20px auto 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 80px 0 80px 0;
   max-width: 1272px;
 `;

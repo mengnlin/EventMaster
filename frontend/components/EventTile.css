@@ -1,27 +1,18 @@
 .event-tile-outer-container {
   padding: 12px 8px;
-  margin: 0;
   box-sizing: content-box;
-  max-width: 318px;
-  height: 331px;
-  display: inline-block;
-}
-
-.event-tile-inner-container {
-  padding: 4px;
-  width: 253px;
+  position: relative;
   height: 255px;
+  display: inline-block;
 }
 .event-tile-inner-container:hover {
   border: 0.1px solid #eeedf2;
-  /* overflow: hidden; */
 }
 
 .event-tile-cover {
   object-fit: cover;
   position: relative;
   border-radius: 4px;
-  margin: 0;
   line-height: 22px;
   width: 253px;
   padding-top: 0px;
