@@ -1,11 +1,17 @@
 import React from "react";
 import { css } from "emotion";
-import github from "../static/github.png";
-import javaScript from "../static/javaScript.png";
-import linkedin from "../static/linkedin.jpg";
-import rails from "../static/rails.jpg";
-import react from "../static/react.png";
-import ruby from "../static/ruby.png";
+const github =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/github.png?raw=true";
+const javaScript =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/javaScript.png?raw=true";
+const linkedin =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/linkedin.jpg?raw=true";
+const rails =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/rails.jpg?raw=true";
+const react =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/react.png?raw=true";
+const ruby =
+  "https://github.com/mengnlin/EventMaster/blob/master/frontend/static/ruby.png?raw=true";
 
 const Footer = () => {
   return (
