@@ -1,27 +1,36 @@
 import React from "react";
 import { css } from "emotion";
+import github from "../static/github.png";
+import javaScript from "../static/javaScript.png";
+import linkedin from "../static/linkedin.jpg";
+import rails from "../static/rails.jpg";
+import react from "../static/react.png";
+import ruby from "../static/ruby.png";
 
 const Footer = () => {
   return (
     <div className={FooterContainer}>
       <div className={innerContainer}>
         <div className={IconContainer}>
-          <img src="javaScript.png" className={GithubIcon} />
+          <img src={javaScript} className={GithubIcon} />
         </div>
         <div className={IconContainer}>
-          <img src="rails.jpg" className={GithubIcon} />
+          <img src={ruby} className={GithubIcon} />
         </div>
         <div className={IconContainer}>
-          <img src="react.png" className={GithubIcon} />
+          <img src={rails} className={GithubIcon} />
+        </div>
+        <div className={IconContainer}>
+          <img src={react} className={GithubIcon} />
         </div>
         <div className={IconContainer}>
           <a href="https://www.linkedin.com/in/mengna-lin/">
-            <img src="linkedin.jpg" className={LinkedinIcon} />
+            <img src={linkedin} className={LinkedinIcon} />
           </a>
         </div>
         <div className={IconContainer}>
           <a href="https://github.com/mengnlin">
-            <img src="github.png" className={GithubIcon} />
+            <img src={github} className={GithubIcon} />
           </a>
         </div>
         <div className={SignatureContainer}>
