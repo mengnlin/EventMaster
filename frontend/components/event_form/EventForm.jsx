@@ -128,14 +128,16 @@ class EventForm extends React.Component {
               placeholder="Event Time"
               onChange={this.update("time")}
             />
+            <input
+              type="file"
+              // value={this.state.imageUrl}
+              onChange={this.previewPhoto}
+              accept="image/png, image/jpeg"
+            />
+            {this.state.imageUrl && (
+              <img src={`${this.state.imageUrl}`} className={imageStyle} />
+            )}
           </EventEditorWrapper>
-          <img src={`${this.state.imageUrl}`} />
-          <input
-            type="file"
-            // value={this.state.imageUrl}
-            onChange={this.previewPhoto}
-            accept="image/png, image/jpeg"
-          />
           {this.renderErrors()}
           <input
             type="submit"
@@ -148,6 +150,9 @@ class EventForm extends React.Component {
   }
 }
 
+const imageStyle = css`
+  max-width: 100%;
+`;
 const customSelect = css`
   width: 200px;
   height: 80;
