@@ -1,24 +1,21 @@
-# README
+# EventMaster
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Eventmaster is an event registration site, in which users could create, manage their events. It makes use of a Rails/PostgreSQL backend, React.js and Redux on the frontend with AWS cloud service for photo storage.
 
-Things you may want to cover:
+##Features
 
-* Ruby version
+- Secure frontend to backend user authentication using BCrypt.
+- Users can create and edit events.
+- Display events based on category.
+- Each event has a show page with details.
+- Events support images.
 
-* System dependencies
+##Techonologies
 
-* Configuration
+This project was designed to be completed within 10 days. Rails was used as project backend because of its convinient RESTful architecture. Frontend components were builded with React. Most React Components were designed to be reuseable.
 
-* Database creation
+##Possible future features
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Search base on locations
+- Event following/likes
+- Event tickets
