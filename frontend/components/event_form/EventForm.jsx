@@ -39,7 +39,6 @@ class EventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger;
     const formData = new FormData();
     formData.append("title", this.state.title);
     formData.append("description", this.state.description);
@@ -48,10 +47,8 @@ class EventForm extends React.Component {
     formData.append("time", this.state.time);
     formData.append("category", this.state.category);
     if (this.props.formType === "Update Event") {
-      debugger;
       formData.append("id", this.state.id);
     }
-    // debugger;
     if (this.state.imageFile) {
       formData.append("picture", this.state.imageFile);
     }

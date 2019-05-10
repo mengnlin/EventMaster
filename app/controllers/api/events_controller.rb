@@ -25,8 +25,6 @@ class Api::EventsController < ApplicationController
 
 
     def update 
-
-        debugger
         @event=current_user.events.find(params[:id])
         @event.update_attributes(event_params)
         if @event.save 

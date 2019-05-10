@@ -35,8 +35,6 @@ export const fetchPickEvents = () =>
   });
 
 export const updateEvent = (event, id) => {
-  debugger;
-
   return $.ajax({
     method: "PATCH",
     url: `/api/events/${id}`,
