@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "emotion";
+
 const Footer = () => {
   return (
     <div className={FooterContainer}>
@@ -24,7 +25,6 @@ const Footer = () => {
           </a>
         </div>
         <div className={SignatureContainer}>
-          {/* <p className={Signature}> </p> */}
           <p className={Signature}>By Mengna Lin</p>
         </div>
       </div>
@@ -33,17 +33,9 @@ const Footer = () => {
 };
 
 const FooterContainer = css`
-  /* background: #d1410b; */
-  /* rgb(247, 129, 56); */
   height: 100px;
   display: flex;
-  /* position: absolute; */
   margin-top: 200px;
-  /* justify-content: fle; */
-  /* bottom: 0;
-  flex: 1; */
-  /* margin-bottom: 36;  */
-  /* margin-top: 200px; */
 `;
 
 const innerContainer = css`
