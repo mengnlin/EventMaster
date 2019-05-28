@@ -45,6 +45,8 @@ class EventForm extends React.Component {
     formData.append("event_date", this.state.event_date);
     formData.append("location", this.state.location);
     formData.append("time", this.state.time);
+    formData.append("price", this.state.price);
+    formData.append("ticket", this.state.ticket);
     formData.append("category", this.state.category);
     if (this.props.formType === "Update Event") {
       formData.append("id", this.state.id);
@@ -124,6 +126,20 @@ class EventForm extends React.Component {
               value={this.state.time}
               placeholder="Event Time"
               onChange={this.update("time")}
+            />
+            <input
+              type="number"
+              className={inputstyle}
+              value={this.state.ticket}
+              placeholder="Enter Number of Tickets"
+              onChange={this.update("ticket")}
+            />
+            <input
+              type="number"
+              className={inputstyle}
+              value={this.state.price}
+              placeholder="Enter Price of Individual Ticket"
+              onChange={this.update("price")}
             />
             <input
               type="file"

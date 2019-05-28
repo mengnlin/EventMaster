@@ -14,7 +14,9 @@ const mapStateToProps = (state, ownProps) => {
     event_date: "",
     time: "",
     location: "",
-    category: "music"
+    category: "music",
+    ticket: 0,
+    price: 0
   };
   // let event =
   //   state.entities.events.find(

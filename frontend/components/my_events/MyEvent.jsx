@@ -4,7 +4,15 @@ import EventManageBar from "./EventManageBar";
 
 import { dateDecomp } from "../utils";
 
-const MyEvent = ({ title, date, time, eventId, deleteEvent }) => {
+const MyEvent = ({
+  title,
+  date,
+  time,
+  eventId,
+  deleteEvent,
+  price,
+  quantity
+}) => {
   const { year, month, day } = dateDecomp(date);
   return (
     <div className="myevent-container">
@@ -12,7 +20,8 @@ const MyEvent = ({ title, date, time, eventId, deleteEvent }) => {
       <div className="myevent-details">
         <p className="myevent-title">{title}</p>
         <p className="myevent-time">
-          {month} {day},{year} {time}
+          {month} {day},{year} {time} Ticket Price: {price} Ticket Quantity:{" "}
+          {quantity}
         </p>
       </div>
       <div>

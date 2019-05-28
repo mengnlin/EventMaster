@@ -71,6 +71,8 @@ class MyEvents extends React.Component {
                         time={timeString}
                         eventId={eventId}
                         deleteEvent={this.props.deleteEvent}
+                        price={currentEvent.ticket.price}
+                        quantity={currentEvent.ticket.quantity}
                       />
                     </li>
                   );

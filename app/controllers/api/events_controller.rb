@@ -4,7 +4,9 @@ class Api::EventsController < ApplicationController
     def create 
         @event =Event.create(event_params)
         @event.organizer_id = current_user.id
+        # p event_params[:price]
         if @event.save
+            Ticket.create(ticket_params(@event)).save
             render 'api/events/show'
         else  
             render json: @event.errors.full_messages, status:422
@@ -44,4 +46,14 @@ class Api::EventsController < ApplicationController
         params.permit(:id,:title,:description,:event_date,:location,:time,:category,:picture)
     end  
 
+    def ticket_params (event)
+        params.require([:ticket,:price])
+        return {quantity:params[:ticket],
+        price:params[:price],
+        event_id:event.id
+        }
+        
+    end 
+
 end
+# ,:ticket,:price

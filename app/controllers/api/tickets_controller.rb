@@ -2,7 +2,7 @@ class Api::TicketsController < ApplicationController
     before_action :require_logged_in
 
     def create
-        @ticket = Ticket.new(ticket_params)
+        @ticket = Ticket.create(ticket_params)
         event=Event.find(@ticket.event.id)
         @ticket.event.organizer_id=current_user.id
         if @ticket.save 

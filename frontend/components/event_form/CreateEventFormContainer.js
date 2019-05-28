@@ -9,7 +9,9 @@ const mapStateToProps = state => {
     event_date: "",
     location: "",
     time: "",
-    category: "music"
+    category: "music",
+    ticket: 0,
+    price: 0
   };
   return { event, formType: "Create Event", errors: state.errors.event };
 };
