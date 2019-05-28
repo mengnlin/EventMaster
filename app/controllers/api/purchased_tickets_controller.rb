@@ -1,25 +1,29 @@
-class Api::Purchased_Tickets_Controller < ApplicationController
+class Api::PurchasedTicketsController < ApplicationController
     before_action :require_logged_in
 
     def create
         @purchased_ticket=PurchasedTicket.create(purchased_ticket_params)
-        if purchased_ticket.save
-            render 'api/purchase_tickets'
+        if @purchased_ticket.save
+            @purchased_tickets=current_user.purchased_tickets
+            debugger
+            render "api/purchased_tickets/index"
         else
             render json: @purchased_ticket.errors.full_messages, status:422
         end 
     end
-e
+
     def index 
-        PurchasedTicket.all
+        @purchased_tickets=current_user.purchased_tickets
     end 
 
-    def destory 
-        @purchased_ticket=current_user.purchase_tickets.find(params[:id])
-        @purchased_ticket.destory
+    def destroy 
+        @purchased_ticket=current_user.purchased_tickets.find(params[:id])
+        @purchased_ticket.destroy
     end 
-    def purchased_ticket_params(event)
-        params.require([user_id:current_user.id,event_id:event.id])
-        return {user_id:current_user.id,event_id:event.id}
+    def purchased_ticket_params
+        params.require([:ticket_id])
+        ticketId=params[:ticket_id]
+        ticket=Ticket.find_by_id(ticketId)
+        return {ticket_id:ticketId,user_id:current_user.id,event_id:ticket.event_id}
     end 
 end 

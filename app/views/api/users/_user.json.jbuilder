@@ -11,4 +11,4 @@ json.purchased_tickets do
     end  
 end
 
-# json.extract! purchase_ticket, :quantity,:price
+# json.extract! purchased_ticket, :quantity,:price

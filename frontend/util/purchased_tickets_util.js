@@ -7,11 +7,12 @@ export const fetchPurasedTickets = () =>
 export const createPurchasedTicket = purchased_ticket =>
   $.ajax({
     method: "POST",
-    url: "api/purchased_tickets"
+    url: "api/purchased_tickets",
+    data: purchased_ticket
   });
 
-export const deletePurchaseTicket = id =>
+export const deletePurchasedTicket = id =>
   $.ajax({
     method: "DELETE",
-    url: `api/purchase_tickets/${id}`
+    url: `api/purchased_tickets/${id}`
   });
