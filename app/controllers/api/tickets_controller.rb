@@ -14,7 +14,7 @@ class Api::TicketsController < ApplicationController
     end 
 
     def index 
-        @tickets=Event.all
+        @tickets=Ticket.all
     end 
 
 

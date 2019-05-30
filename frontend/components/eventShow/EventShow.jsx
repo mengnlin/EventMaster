@@ -8,15 +8,16 @@ import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-
+import EventShowRegisterBar from "./EventShowRegisterBar";
+import { createPurchasedTicket } from "../../util/purchased_tickets_util";
 const mapStateToProps = state => ({
-  currentUser: state.entities.user && state.entities.user.id
+  currentUser: state.entities.user && state.entities.user.id,
+  purchased_tickets: state.entities.purchased_tickets
 });
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
-
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,10 @@ class EventShow extends React.Component {
 
   render() {
     let event = this.state.event;
+    const purchaseATicket = () =>
+      alert("You had succefully purchase a ticket!");
     if (event) {
+      let purchasesTicketNumber = event.purchased_ticket_count;
       return (
         <>
           <Bar>
@@ -62,8 +66,24 @@ class EventShow extends React.Component {
               date={event.event_date}
               organizer={event.username}
               cover={event.pictureUrl}
+              price={event.ticket.price}
             />
-
+            <EventShowRegisterBar
+              action={() => {
+                if (!this.props.currentUser) {
+                  alert("Please Sign in first");
+                } else {
+                  createPurchasedTicket(event.ticket.ticketId).then(() => {
+                    purchaseATicket();
+                    return fetchEvent(event.id).then(event =>
+                      this.setState({ event })
+                    );
+                  });
+                }
+              }}
+              ticket={event.ticket}
+              purchasedTicketNumber={purchasesTicketNumber}
+            />
             <EventShowDetails
               description={event.description}
               location={event.location}
@@ -90,10 +110,10 @@ const backgroundImage = css`
 const EventShowContainer = css`
   margin: 20px auto 0 auto;
   display: flex;
-  align-items: center;
+  box-sizing: border-box;
+  align-items: stretch;
   flex-direction: column;
-  padding: 80px 0 80px 0;
-  max-width: 1272px;
+  max-width: 1080px;
 `;
 
 const ConnectedEventShow = connect(

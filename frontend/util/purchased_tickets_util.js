@@ -8,7 +8,7 @@ export const createPurchasedTicket = purchased_ticket =>
   $.ajax({
     method: "POST",
     url: "api/purchased_tickets",
-    data: purchased_ticket
+    data: { ticket_id: purchased_ticket }
   });
 
 export const deletePurchasedTicket = id =>

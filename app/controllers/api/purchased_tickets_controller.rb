@@ -5,7 +5,6 @@ class Api::PurchasedTicketsController < ApplicationController
         @purchased_ticket=PurchasedTicket.create(purchased_ticket_params)
         if @purchased_ticket.save
             @purchased_tickets=current_user.purchased_tickets
-            debugger
             render "api/purchased_tickets/index"
         else
             render json: @purchased_ticket.errors.full_messages, status:422

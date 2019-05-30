@@ -2,4 +2,5 @@
 # debugger
 json.array! @purchased_tickets do |purchased_ticket| 
     json.purchased_ticket purchased_ticket.event_id
+    
 end 

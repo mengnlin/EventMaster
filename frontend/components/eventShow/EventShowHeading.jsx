@@ -1,7 +1,7 @@
 import React from "react";
 import { dateDecomp } from "../utils";
 import { css } from "emotion";
-const EventShowHeading = ({ title, date, organizer, cover }) => {
+const EventShowHeading = ({ title, date, organizer, cover, price }) => {
   const { month, day } = dateDecomp(date);
   return (
     <div className={eventShowHeadingContainer}>
@@ -15,11 +15,20 @@ const EventShowHeading = ({ title, date, organizer, cover }) => {
         </div>
         <h1 className={eventheadingTitle}>{title}</h1>
         <p className={eventheadingOrganizer}>by {organizer}</p>
+        <p className={eventPrice}>${price}</p>
       </div>
     </div>
   );
 };
 
+const eventPrice = css`
+  position: absolute;
+  font-size: 15px;
+  line-height: 20px;
+  color: rgb(57, 54, 79);
+  font-weight: 400;
+  bottom: 10px;
+`;
 const eventShowHeadingContainer = css`
   margin: 0 auto 0 auto;
   padding: 0;
@@ -32,14 +41,12 @@ const eventShowHeadingContainer = css`
 const eventShowImageContainer = css`
   height: 360px;
   width: 720px;
-  /* border: 1px solid grey; */
-
   padding: 0;
   margin: 0;
 `;
 
 const eventShowTitleContainer = css`
-  padding-left: 15px;
+  padding: 30px;
   /* margin-right: 15px; */
   flex-grow: 1;
   background-color: #ebf1f3;
@@ -59,6 +66,7 @@ const eventShowImage = css`
 `;
 const eventheadingdate = css`
   font-size: 17px;
+  font-weight: 600;
   line-height: 21.25px;
   margin: 0;
   padding: 0 0 0 0;

@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-// import MyEvents from "./MyEvents";
 import React from "react";
 import { Link } from "react-router-dom";
 import { fetchEvents, deleteEvent } from "../../actions/event_actions";
