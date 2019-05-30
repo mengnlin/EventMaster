@@ -74,6 +74,7 @@ class EventForm extends React.Component {
       <div>
         <Bar>
           <NavBarButton label="My Events" link="/myevents" />
+          <NavBarButton label="My Tickets" link="/mytickets" />
           <NavBarButton label="Sign Out" link="/" onClick={logout} />
         </Bar>
         <form onSubmit={this.handleSubmit} className={formContainer}>

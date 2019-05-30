@@ -1,15 +1,39 @@
 import React from "react";
 import { dateDecomp } from "../utils";
-import { css } from "emotion";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  width: 1080px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin-bottom: 20px;
+`;
+
+const CoverImage = styled.div`
+  background: url(${props => props.image});
+  width: 70%;
+  background-size: cover;
+  background-position: center;
+`;
+
+const Detail = styled.div`
+  padding: 30px;
+  flex-grow: 1;
+  background-color: #ebf1f3;
+  border-radius: 0px 5px 0px 0px;
+`;
 
 const MyPurchasedTicket = ({ title, date, time, location, cover }) => {
   const { month, day, year } = dateDecomp(date);
   return (
-    <div className={myPurchasedTicketContainer}>
-      <div className={myPurchasedTicketImageContainer}>
-        <img src={`${cover}`} className={image} />
-      </div>
-      <div className={myPurchasedTicketTitleContainer}>
+    <Container>
+      <CoverImage image={cover} />
+      <Detail>
         <div>
           <h3>{title}</h3>
           <h3>Date And Time</h3>
@@ -21,35 +45,9 @@ const MyPurchasedTicket = ({ title, date, time, location, cover }) => {
           <h3>Location</h3>
           <p>{location}</p>
         </div>
-      </div>
-    </div>
+      </Detail>
+    </Container>
   );
 };
-
-const myPurchasedTicketContainer = css`
-  margin: 0 auto 30px auto;
-  padding: 0;
-  width: 300px;
-  height: 250px;
-  position: absolute;
-  display: flex;
-`;
-
-const myPurchasedTicketImageContainer = css`
-  height: 360px;
-  width: 100%;
-`;
-const image = css`
-  height: 100%;
-  width: 700px;
-`;
-const myPurchasedTicketTitleContainer = css`
-  padding: 30px;
-  /* margin-right: 15px; */
-  flex-grow: 1;
-  /* z-index: 1; */
-  background-color: #ebf1f3;
-  border-radius: 0px 5px 0px 0px;
-`;
 
 export default MyPurchasedTicket;

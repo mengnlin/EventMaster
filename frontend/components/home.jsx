@@ -23,7 +23,7 @@ const Home = ({ currentUser, logout }) => {
         {!!currentUser || <NavBarButton label="Sign In" link="/login" />}
         {!!currentUser || <NavBarButton label="Sign Up" link="/signup" />}
         {currentUser && <NavBarButton label="Create Event" link="/event/new" />}
-        {currentUser && <NavBarButton label="My Ticket" link="/mytickets" />}
+        {currentUser && <NavBarButton label="My Tickets" link="/mytickets" />}
         {currentUser && <NavBarButton label="My Events" link="/myevents" />}
         {currentUser && (
           <NavBarButton label="Sign Out" link="/" onClick={logout} />
