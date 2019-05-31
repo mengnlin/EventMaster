@@ -54,8 +54,6 @@ class EventForm extends React.Component {
     if (this.state.imageFile) {
       formData.append("picture", this.state.imageFile);
     }
-    console.log(this.state);
-    // console.log(formData);
     this.props
       .processForm(formData, this.state.id)
       .then(event => this.props.history.push(`/events/${event.event.id}`));

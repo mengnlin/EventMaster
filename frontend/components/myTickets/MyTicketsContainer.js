@@ -5,25 +5,26 @@ import { css } from "emotion";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
 import MyPurchasedTicket from "./MyPurchasedTicket";
+import { fetchPurchasedTickets } from "../../actions/purchased_tickets_actions";
 import { deletePurchasedTicket } from "../../actions/purchased_tickets_actions";
 import { timeDecomp } from "../utils";
 const mapStateToProps = state => ({
-  currentUser: state.entities.user
+  currentUser: state.entities.user,
+  purchased_tickets: state.entities.purchased_tickets
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fetchPurchasedTickets: tickets => dispatch(fetchPurchasedTickets(tickets)),
+  fetchPurchasedTickets: () => dispatch(fetchPurchasedTickets()),
   deletePurchasedTicket: id => dispatch(deletePurchasedTicket(id)),
   logout: () => dispatch(logout())
 });
 
 class MyTickets extends React.Component {
-  // componentDidMount() {
-  //   this.props.fetchPurchasedTickets();
-  // }
+  componentDidMount() {
+    this.props.fetchPurchasedTickets(this.props.purchased_tickets);
+  }
   render() {
-    console.log(this.props.currentUser);
-    let purchased_tickets = this.props.currentUser.purchased_tickets;
+    let purchased_tickets = this.props.purchased_tickets;
     if (!purchased_tickets) {
       return (
         <>
@@ -64,9 +65,6 @@ class MyTickets extends React.Component {
                       time={timeString}
                       cover={purchasedTicket.event_pictureUrl}
                       location={purchasedTicket.event_location}
-                      // deletePurchasedTicket={() =>
-                      //   this.props.deletePurchasedTicket(purchasedTicket.id)
-                      // }
                     />
                   </li>
                 );

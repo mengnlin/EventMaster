@@ -7,8 +7,6 @@ import EventIndexContainer from "./event_index/EventIndexContainer";
 import Banner from "./Banner";
 import GeneralEventsView from "./GeneralEventsView";
 import Footer from "./Footer";
-// import Search from "./Search";
-
 const mapStateToProps = state => ({
   currentUser: state.entities.user
 });
