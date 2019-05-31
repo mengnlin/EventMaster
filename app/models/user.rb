@@ -27,6 +27,13 @@ class User < ApplicationRecord
   class_name: :Event
 
    has_many :purchased_tickets
+
+   has_many :collections
+
+   has_many :followed_events,
+   through: :collections,
+   source: :event
+
   # has_many :tickets,
   # through: :events
 

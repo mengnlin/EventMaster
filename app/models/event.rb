@@ -27,6 +27,7 @@ class Event < ApplicationRecord
     has_one_attached :picture
 
     has_one :ticket
+    # has_many :collections
 
     has_many :purchased_tickets
 

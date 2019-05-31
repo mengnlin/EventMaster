@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :events, only:[:create,:destroy,:index,:show,:update]
     resources :tickets, only:[:create,:destroy,:index]
     resources :purchased_tickets,only:[:create,:destroy,:index]
+    resources :collections, only:[:create,:destroy,:index]
   end
   root "static_pages#root"
 end
