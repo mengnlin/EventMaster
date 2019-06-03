@@ -48,6 +48,7 @@ class MyCollections extends React.Component {
           <Bar>
             <NavBarButton label="Create Event" link="/event/new" />
             <NavBarButton label="My Events" link="/myevents" />
+            <NavBarButton label="My Tickets" link="mytickets" />
             <NavBarButton
               label="Sign Out"
               link="/"

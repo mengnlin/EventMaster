@@ -32,6 +32,7 @@ class MyEvents extends React.Component {
           <Bar>
             <NavBarButton label="Create Event" link="/event/new" />
             <NavBarButton label="My Tickets" link="/mytickets" />
+            <NavBarButton label="My Likes" link="mycollections" />
             <NavBarButton
               label="Sign Out"
               link="/"
@@ -47,6 +48,7 @@ class MyEvents extends React.Component {
           <Bar>
             <NavBarButton label="Create Event" link="/event/new" />
             <NavBarButton label="My Tickets" link="/mytickets" />
+            <NavBarButton label="My Likes" link="mycollections" />
             <NavBarButton
               label="Sign Out"
               link="/"

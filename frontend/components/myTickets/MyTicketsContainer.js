@@ -46,6 +46,7 @@ class MyTickets extends React.Component {
           <Bar>
             <NavBarButton label="Create Event" link="/event/new" />
             <NavBarButton label="My Events" link="/myevents" />
+            <NavBarButton label="My Likes" link="mycollections" />
             <NavBarButton
               label="Sign Out"
               link="/"
