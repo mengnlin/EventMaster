@@ -10,8 +10,8 @@ const mapStateToProps = state => {
     location: "",
     time: "",
     category: "music",
-    ticket: 0,
-    price: 0
+    ticket: "",
+    price: ""
   };
   return { event, formType: "Create Event", errors: state.errors.event };
 };

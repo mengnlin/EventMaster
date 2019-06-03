@@ -27,10 +27,14 @@ const EventTile = ({ title, location, date, cover, eventId }) => {
           </div>
           <div className="event-tile-text-right">
             <Link to={`/events/${eventId}`} className="links">
-              {title}
+              {title.length > 15 ? title.substring(0, 16) + "..." : title}
             </Link>
             <span className="event-tile-text-right-date-time">{date}</span>
-            <span className="event-tile-text-right-location">{location}</span>
+            <span className="event-tile-text-right-location">
+              {location.length > 72
+                ? location.substring(0, 72) + "..."
+                : location}
+            </span>
           </div>
         </div>
       </div>

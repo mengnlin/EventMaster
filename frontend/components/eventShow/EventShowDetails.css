@@ -15,10 +15,18 @@
   padding: 0px 15px 0 15px;
   margin: 0;
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .event-show-date-container {
   flex-grow: 1;
+  width: 360px;
   margin: 0 auto 0 auto;
   padding-left: 15px;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
+
+/* .location {
+  word-wrap: break-word;
+} */
