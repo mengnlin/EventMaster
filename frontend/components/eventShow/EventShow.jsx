@@ -49,6 +49,9 @@ class EventShow extends React.Component {
             {this.props.currentUser && (
               <NavBarButton label="My Tickets" link="/mytickets" />
             )}
+            {this.props.currentUser && (
+              <NavBarButton label="My Likes" link="/mycollections" />
+            )}
 
             {this.props.currentUser && (
               <NavBarButton label="My Events" link="/myevents" />
