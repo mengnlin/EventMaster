@@ -23,7 +23,7 @@ const CoverImage = styled.div`
 
 const Detail = styled.div`
   padding: 30px;
-  flex-grow: 1;
+  flex-grow: 30%;
   background-color: #ebf1f3;
   border-radius: 0px 5px 0px 0px;
 `;
