@@ -45,9 +45,6 @@ const MyCollection = ({ title, date, time, location, cover, remove }) => {
           <h3>Location</h3>
           <p>{location}</p>
         </div>
-        {/* <div>
-          <button onClick={remove}>delete Event from collection</button>
-        </div> */}
       </Detail>
     </Container>
   );

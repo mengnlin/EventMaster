@@ -1,17 +1,12 @@
 import { connect } from "react-redux";
 import React from "react";
 import { logout } from "../../actions/session_actions";
-import {
-  fetchCollectedEvents,
-  createCollection,
-  deleteCollectedEvents
-} from "../../util/collection_util";
+import { fetchCollectedEvents } from "../../util/collection_util";
 import { css } from "emotion";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
-import MyCollection from "./MyCollection";
-
 import { timeDecomp } from "../utils";
+import MyCollectionItem from "./MyCollectionItem";
 
 const mapStateToProps = state => ({
   currentUser: state.entities.user
@@ -20,24 +15,16 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 class MyCollections extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {};
-  //   }
-  //   componentDidMount() {
-  //     fetchCollectedEvents().then(events =>
-  //       this.setState({ collectedEvents: events })
-  //     );
-  //   }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  componentDidMount() {
+    fetchCollectedEvents().then(collections => this.setState({ collections }));
+  }
   render() {
-    // return "aaa";
-    // let CollectedEvents;
-    // fetchCollectedEvents().then(events => (CollectedEvents = events));
-    // return
-    console.log(this.props.currentUser);
-    const likes = this.props.currentUser.likes;
-    console.log("likes", likes);
-    if (!likes) {
+    const collectedEvents = this.state.collections;
+    if (!collectedEvents) {
       return (
         <>
           <Bar>
@@ -70,17 +57,23 @@ class MyCollections extends React.Component {
           <div>
             <h1 className={myTicketsHeading}>My Likes</h1>
             <ul className={deleteDot}>
-              {likes.map((like, index) => {
-                let timeString = timeDecomp(like.event_time);
+              {collectedEvents.map((collectedEvent, index) => {
+                let timeString = timeDecomp(collectedEvent.time);
                 return (
                   <li key={index}>
-                    <MyCollection
-                      remove={() => this.props.deleteCollectedEvents(like.id)}
-                      title={like.event_title}
-                      date={like.event_date}
+                    <MyCollectionItem
+                      title={collectedEvent.title}
+                      date={collectedEvent.event_date}
                       time={timeString}
-                      cover={like.event_pictureUrl}
-                      location={like.event_location}
+                      cover={collectedEvent.pictureUrl}
+                      location={collectedEvent.location}
+                      reFetch={() => {
+                        // debugger;
+                        return fetchCollectedEvents().then(collections =>
+                          this.setState({ collections })
+                        );
+                      }}
+                      id={collectedEvent.followed_id}
                     />
                   </li>
                 );
@@ -104,10 +97,10 @@ const myTicketsHeading = css`
 
 const deleteDot = css`
   list-style-type: none;
-  /* list-style-position: inside; */
   margin: 0;
   padding: 0;
 `;
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -1,6 +1,7 @@
 import React from "react";
 import { dateDecomp } from "../utils";
 import { css } from "emotion";
+
 const EventShowHeading = ({ title, date, organizer, cover, price }) => {
   const { month, day } = dateDecomp(date);
   return (

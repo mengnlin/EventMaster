@@ -16,7 +16,6 @@ const EventShowRegisterBar = ({
   reFetch
 }) => {
   const soldoutAlert = () => alert("Sorry, the tickets have sold out");
-  console.log(collectionId);
   return (
     <div className={EventShowRegisterBarContainer}>
       <div className={leftBar}>
@@ -33,7 +32,9 @@ const EventShowRegisterBar = ({
             className={heartIcon}
             src="redHeart.png"
             onClick={() =>
-              deleteCollectedEvents(collectionId).then(() => reFetch())
+              deleteCollectedEvents(collectionId).then(() => {
+                return reFetch();
+              })
             }
           />
         )}

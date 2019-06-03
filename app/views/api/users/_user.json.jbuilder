@@ -21,6 +21,7 @@ json.collections do
 end  
 json.likes do 
     json.array! user.followed_events do |event|
+        json.like_id event.user.collections.find_by(event_id:event.id).id
         json.event_id event.id
         json.event_date event.event_date
         json.event_time event.time
