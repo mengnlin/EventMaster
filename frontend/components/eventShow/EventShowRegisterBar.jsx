@@ -1,11 +1,43 @@
 import React from "react";
 import { css } from "emotion";
+import { Link } from "react-router-dom";
+import {
+  createCollection,
+  deleteCollectedEvents
+} from "../../util/collection_util";
 
-const EventShowRegisterBar = ({ action, ticket, purchasedTicketNumber }) => {
+const EventShowRegisterBar = ({
+  action,
+  ticket,
+  purchasedTicketNumber,
+  id,
+  isLike,
+  collectionId,
+  reFetch
+}) => {
   const soldoutAlert = () => alert("Sorry, the tickets have sold out");
+  console.log(collectionId);
   return (
     <div className={EventShowRegisterBarContainer}>
-      <div className={leftBar}>Fellow</div>
+      <div className={leftBar}>
+        {!isLike ? (
+          <img
+            className={heartIcon}
+            src="heart.png"
+            onClick={() =>
+              createCollection({ event_id: id }).then(() => reFetch())
+            }
+          />
+        ) : (
+          <img
+            className={heartIcon}
+            src="redHeart.png"
+            onClick={() =>
+              deleteCollectedEvents(collectionId).then(() => reFetch())
+            }
+          />
+        )}
+      </div>
       <div className={rightBar}>
         {ticket.quantity <= purchasedTicketNumber ? (
           <button className={register} onClick={soldoutAlert}>
@@ -51,6 +83,9 @@ const register = css`
   color: white;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
+`;
+const heartIcon = css`
   cursor: pointer;
 `;
 export default EventShowRegisterBar;

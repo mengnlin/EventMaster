@@ -28,7 +28,7 @@ const Detail = styled.div`
   border-radius: 0px 5px 0px 0px;
 `;
 
-const MyPurchasedTicket = ({ title, date, time, location, cover, remove }) => {
+const MyCollection = ({ title, date, time, location, cover, remove }) => {
   const { month, day, year } = dateDecomp(date);
   return (
     <Container>
@@ -45,12 +45,12 @@ const MyPurchasedTicket = ({ title, date, time, location, cover, remove }) => {
           <h3>Location</h3>
           <p>{location}</p>
         </div>
-        <div>
-          <button onClick={remove}>Delete Ticket</button>
-        </div>
+        {/* <div>
+          <button onClick={remove}>delete Event from collection</button>
+        </div> */}
       </Detail>
     </Container>
   );
 };
 
-export default MyPurchasedTicket;
+export default MyCollection;

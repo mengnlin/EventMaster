@@ -85,6 +85,14 @@ class EventShow extends React.Component {
                   });
                 }
               }}
+              reFetch={() => {
+                return fetchEvent(event.id).then(event =>
+                  this.setState({ event })
+                );
+              }}
+              isLike={event.isLike}
+              id={event.id}
+              collectionId={event.followed_id}
               ticket={event.ticket}
               purchasedTicketNumber={purchasesTicketNumber}
             />

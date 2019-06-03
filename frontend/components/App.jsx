@@ -12,6 +12,7 @@ import EventShow from "./eventShow/EventShow";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 import MyEventsContainer from "./my_events/MyEventsContainer";
 import MyTicketContainer from "./myTickets/MyTicketsContainer";
+import MyCollectionContainer from "./MyCollections/MyCollectionContainer";
 import Footer from "./Footer";
 const App = () => (
   <div>
@@ -33,6 +34,7 @@ const App = () => (
       <Route exact path="/events/:id" component={EventShow} />
       <Route exact path="/myevents" component={MyEventsContainer} />
       <Route exact path="/mytickets" component={MyTicketContainer} />
+      <Route exact path="/mycollections" component={MyCollectionContainer} />
       <Route exact path="/events" component={EventIndexContainer} />
       <Route exact path="/" component={Home} />
       <Redirect to="/" />

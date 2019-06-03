@@ -10,9 +10,8 @@ const purchasedTicketReducer = (state = [], action) => {
     case RECEIVE_ALL_PURCHASED_TICKETS:
       return action.purchased_tickets;
     case DELETE_TICKET:
-      let newstate = Object.assign({}, state);
-      delete newstate[action.id];
-      return newstate;
+      let newstate = [...state];
+      return newstate.filter(ele => ele.id !== action.id);
     default:
       return state;
   }

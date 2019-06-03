@@ -6,7 +6,7 @@ class Api::CollectionsController < ApplicationController
         if @collection.save
             render 'api/collections/index'
         else  
-            render json: @collection.errors.full_messages, status:422
+            render json: 'Event is already in your collection'
         end 
     end 
 
@@ -18,5 +18,10 @@ class Api::CollectionsController < ApplicationController
         @collection =current_user.collections.find(params[:id])
         @collection.destroy
     end 
+
+     private 
+    def collection_params 
+        params.permit(:event_id,:id)
+    end  
 
 end

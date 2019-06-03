@@ -1,35 +1,50 @@
 import { connect } from "react-redux";
 import React from "react";
 import { logout } from "../../actions/session_actions";
+import {
+  fetchCollectedEvents,
+  createCollection,
+  deleteCollectedEvents
+} from "../../util/collection_util";
 import { css } from "emotion";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
-import MyPurchasedTicket from "./MyPurchasedTicket";
-import { fetchPurchasedTickets } from "../../actions/purchased_tickets_actions";
-import { deletePurchasedTicket } from "../../actions/purchased_tickets_actions";
-import { timeDecomp } from "../utils";
-const mapStateToProps = state => ({
-  currentUser: state.entities.user,
-  purchased_tickets: state.entities.purchased_tickets
-});
+import MyCollection from "./MyCollection";
 
+import { timeDecomp } from "../utils";
+
+const mapStateToProps = state => ({
+  currentUser: state.entities.user
+});
 const mapDispatchToProps = dispatch => ({
-  fetchPurchasedTickets: () => dispatch(fetchPurchasedTickets()),
-  deletePurchasedTicket: id => dispatch(deletePurchasedTicket(id)),
   logout: () => dispatch(logout())
 });
-
-class MyTickets extends React.Component {
-  componentDidMount() {
-    this.props.fetchPurchasedTickets(this.props.purchased_tickets);
-  }
+class MyCollections extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {};
+  //   }
+  //   componentDidMount() {
+  //     fetchCollectedEvents().then(events =>
+  //       this.setState({ collectedEvents: events })
+  //     );
+  //   }
   render() {
-    let purchased_tickets = this.props.purchased_tickets;
-    if (!purchased_tickets) {
+    // return "aaa";
+    // let CollectedEvents;
+    // fetchCollectedEvents().then(events => (CollectedEvents = events));
+    // return
+    console.log(this.props.currentUser);
+    const likes = this.props.currentUser.likes;
+    console.log("likes", likes);
+    if (!likes) {
       return (
         <>
           <Bar>
             <NavBarButton label="Create Event" link="/event/new" />
+            {this.props.currentUser && (
+              <NavBarButton label="My Tickets" link="/mytickets" />
+            )}
             <NavBarButton label="My Events" link="/myevents" />
             <NavBarButton
               label="Sign Out"
@@ -37,7 +52,7 @@ class MyTickets extends React.Component {
               onClick={this.props.logout}
             />
           </Bar>
-          <h1 className={myTicketsHeading}>My Tickets</h1>
+          <h1 className={myTicketsHeading}>My Likes</h1>
         </>
       );
     } else {
@@ -53,21 +68,19 @@ class MyTickets extends React.Component {
             />
           </Bar>
           <div>
-            <h1 className={myTicketsHeading}>My Tickets</h1>
+            <h1 className={myTicketsHeading}>My Likes</h1>
             <ul className={deleteDot}>
-              {purchased_tickets.map((purchasedTicket, index) => {
-                let timeString = timeDecomp(purchasedTicket.event_time);
+              {likes.map((like, index) => {
+                let timeString = timeDecomp(like.event_time);
                 return (
                   <li key={index}>
-                    <MyPurchasedTicket
-                      remove={() =>
-                        this.props.deletePurchasedTicket(purchasedTicket.id)
-                      }
-                      title={purchasedTicket.event_title}
-                      date={purchasedTicket.event_date}
+                    <MyCollection
+                      remove={() => this.props.deleteCollectedEvents(like.id)}
+                      title={like.event_title}
+                      date={like.event_date}
                       time={timeString}
-                      cover={purchasedTicket.event_pictureUrl}
-                      location={purchasedTicket.event_location}
+                      cover={like.event_pictureUrl}
+                      location={like.event_location}
                     />
                   </li>
                 );
@@ -78,7 +91,6 @@ class MyTickets extends React.Component {
       );
     }
   }
-  // }
 }
 
 const myTicketsHeading = css`
@@ -99,4 +111,4 @@ const deleteDot = css`
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MyTickets);
+)(MyCollections);

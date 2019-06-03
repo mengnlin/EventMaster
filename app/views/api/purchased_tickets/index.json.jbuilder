@@ -7,6 +7,7 @@
 
 
 json.array! @purchased_tickets do |purchased_ticket|
+    json.id purchased_ticket.id
     json.event_id purchased_ticket.event_id
     json.event_date purchased_ticket.event.event_date
     json.event_time purchased_ticket.event.time
