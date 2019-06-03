@@ -16,8 +16,8 @@ const Container = styled.div`
 
 const CoverImage = styled.div`
   background: url(${props => props.image});
-  /* width: 70%; */
-  background-size: 569px 400px;
+  width: 70%;
+  background-size: cover;
   background-position: center;
 `;
 
