@@ -41,12 +41,12 @@ This project was designed to be completed within 10 days. Rails was used as proj
 
 ### My Likes 
 
-##### After following an event, it will appear on My Likes page. User could review or delete all likes on this page.
-<img scr="https://github.com/mengnlin/EventMaster/blob/master/public/myLikesRecord.gif"/>
+##### After following an event, it will appear on My Likes page. User could review or delete all likes on this page
+<img scr="https://github.com/mengnlin/EventMaster/blob/master/public/myLikesRecord.gif" />
 
 ### My Tickets 
 ##### After Purchasing an tickets, User could manage the ticket on My Tickets page 
-<img scr="" />
+
 
 ## Possible future features
 
