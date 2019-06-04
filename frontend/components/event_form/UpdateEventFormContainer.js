@@ -15,15 +15,11 @@ const mapStateToProps = (state, ownProps) => {
     time: "",
     location: "",
     category: "music",
-    ticket: 0,
-    price: 0
+    ticket: "",
+    price: ""
   };
-  // let event =
-  //   state.entities.events.find(
-  //     event => "" + event.id === ownProps.match.params.id
-  //   ) || defaultEvent;
   return {
-    event: state.entities.events[ownProps.match.params.id],
+    event: state.entities.events[ownProps.match.params.id] || defaultEvent,
     formType: "Update Event",
     errors: state.errors.event
   };
@@ -42,7 +38,7 @@ class EditEventForm extends React.Component {
 
   render() {
     const { event, formType, processForm, errors, clearErrors } = this.props;
-    // processForm({ ...event, id: this.props.match.params.id });
+    console.log(this.props.event);
     return (
       <EventForm
         event={event}

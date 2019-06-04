@@ -10,7 +10,6 @@ class EventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event;
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.previewPhoto = this.previewPhoto.bind(this);

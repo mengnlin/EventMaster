@@ -64,6 +64,7 @@ class MyTickets extends React.Component {
                       remove={() =>
                         this.props.deletePurchasedTicket(purchasedTicket.id)
                       }
+                      event_id={purchasedTicket.event_id}
                       title={purchasedTicket.event_title}
                       date={purchasedTicket.event_date}
                       time={timeString}

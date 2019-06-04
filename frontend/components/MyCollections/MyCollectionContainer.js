@@ -75,6 +75,7 @@ class MyCollections extends React.Component {
                         );
                       }}
                       id={collectedEvent.followed_id}
+                      event_id={collectedEvent.id}
                     />
                   </li>
                 );

@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "emotion";
 import { dateDecomp } from "../utils";
 import { deleteCollectedEvents } from "../../util/collection_util";
+import { Link } from "react-router-dom";
 const MyCollectionItem = ({
   reFetch,
   cover,
@@ -9,7 +10,8 @@ const MyCollectionItem = ({
   location,
   title,
   time,
-  id
+  id,
+  event_id
 }) => {
   const { month, day } = dateDecomp(date);
   return (
@@ -19,7 +21,11 @@ const MyCollectionItem = ({
           <img src={`${cover}`} className={likeCover} />
         </div>
         <div className={middleDescription}>
-          <div className={MiddleTitle}>{title}</div>
+          <div className={MiddleTitle}>
+            <Link to={`/events/${event_id}`} className={link}>
+              {title}
+            </Link>
+          </div>
           <div className={MiddleDate}>
             <p>
               {month}, {day}, {time}
@@ -115,5 +121,8 @@ const rightLike = css`
 const heartIcon = css`
   cursor: pointer;
 `;
-
+const link = css`
+  text-decoration: none;
+  color: black;
+`;
 export default MyCollectionItem;
