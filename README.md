@@ -2,7 +2,8 @@
 
 [Event Master Live Demo](https://event-master.herokuapp.com/)
 
-Eventmaster is an event registration site, in which users could create, manage their events. It makes use of a Rails/PostgreSQL backend, React.js and Redux on the frontend with AWS cloud service for photo storage.
+
+Eventmaster is an event listing/booking site, in which users could create, manage their events, and purchase other events. It makes use of a Rails/PostgreSQL backend, React.js and Redux on the frontend with AWS cloud service for photo storage.
 
 ## Features
 
