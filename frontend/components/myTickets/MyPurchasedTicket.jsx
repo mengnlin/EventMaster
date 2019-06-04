@@ -5,7 +5,7 @@ import { css } from "emotion";
 import { Link } from "react-router-dom";
 const Container = styled.div`
   width: 812px;
-  height: 300px;
+  min-height: 300px;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
