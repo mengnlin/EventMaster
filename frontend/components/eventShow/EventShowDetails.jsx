@@ -3,7 +3,9 @@ import { dateDecomp, timeDecomp } from "../utils";
 import "./EventShowDetails.css";
 const EventShowDetails = ({ description, location, date, time }) => {
   const { year, month, day } = dateDecomp(date);
+  console.log("time", time);
   const displayTime = timeDecomp(time);
+  console.log("display", displayTime);
   return (
     <div className="event-show-detail-container">
       <div className="event-Show-description-container">
@@ -15,8 +17,9 @@ const EventShowDetails = ({ description, location, date, time }) => {
         <div>
           <h3>Date And Time</h3>
           <p>
-            {month} {day},{year}, {displayTime}
+            {month} {day}, {year}
           </p>
+          <p>{displayTime}</p>
         </div>
         <div>
           <h3>Location</h3>

@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { dateDecomp } from "./utils";
 const EventTile = ({ title, location, date, cover, eventId }) => {
   const { month, day } = dateDecomp(date);
-
-  // console.log(cover);
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">

@@ -21,8 +21,12 @@ export const dateDecomp = date => {
 
 export const timeDecomp = time => {
   const date = new Date(time);
-  return date.toLocaleString().split(", ")[1];
-  //   let hour = date.getHours();
-  //   let min = date.getMinutes();
-  //   return { hour, min };
+  console.log(date.toLocaleTimeString());
+  const noon = date.toLocaleTimeString().split(" ")[1];
+  let hour = date.getUTCHours();
+  if (hour > 12) {
+    hour = hour - 12;
+  }
+  let min = date.getUTCMinutes();
+  return " " + hour + " : " + min + " " + noon;
 };

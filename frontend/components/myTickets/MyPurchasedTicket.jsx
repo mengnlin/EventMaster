@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 const Container = styled.div`
   width: 812px;
-  height: 400px;
+  height: 300px;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
@@ -23,7 +23,7 @@ const CoverImage = styled.div`
 
 const Detail = styled.div`
   padding: 30px;
-  flex-grow: 30%;
+  flex-grow: 1;
   background-color: #ebf1f3;
   border-radius: 0px 5px 0px 0px;
 `;
@@ -31,14 +31,34 @@ const Detail = styled.div`
 const deleteButton = css`
   font-size: 12px;
   border-radius: 5px;
-  padding: 12px;
+  padding: 10px;
+  /* background: none; */
+  :hover {
+    border: 0.1px solid #eeedf2;
+  }
   cursor: pointer;
+  font-weight: bold;
 `;
 const deleteButtonDiv = css`
   position: relative;
-  padding-top: 50px;
+
+  padding-top: 20px;
 `;
 
+const dateAndLocation = css`
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+`;
+
+const details = css`
+  font-size: 12px;
+`;
+const eventTitle = css`
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 15px;
+`;
 const MyPurchasedTicket = ({ title, date, time, location, cover, remove }) => {
   const { month, day, year } = dateDecomp(date);
   return (
@@ -46,15 +66,16 @@ const MyPurchasedTicket = ({ title, date, time, location, cover, remove }) => {
       <CoverImage image={cover} />
       <Detail>
         <div>
-          <h3>{title}</h3>
-          <h3>Date And Time</h3>
-          <p>
-            {month} {day},{year}, {time}
+          <h2 className={eventTitle}>{title}</h2>
+          <h3 className={dateAndLocation}>Date And Time</h3>
+          <p className={details}>
+            {month} {day}, {year}
           </p>
+          <p className={details}>{time}</p>
         </div>
         <div>
-          <h3>Location</h3>
-          <p>{location}</p>
+          <h3 className={dateAndLocation}>Location</h3>
+          <p className={details}>{location}</p>
         </div>
         <div className={deleteButtonDiv}>
           <button onClick={remove} className={deleteButton}>

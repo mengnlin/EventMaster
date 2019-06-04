@@ -33,6 +33,7 @@ class EventShow extends React.Component {
     const purchaseATicket = () =>
       alert("You had succefully purchase a ticket!");
     if (event) {
+      console.log(event.time);
       let purchasesTicketNumber = event.purchased_ticket_count;
       return (
         <>

@@ -38,7 +38,7 @@ const MyCollection = ({ title, date, time, location, cover, remove }) => {
           <h3>{title}</h3>
           <h3>Date And Time</h3>
           <p>
-            {month} {day},{year}, {time}
+            {month} {day}, {year}, {time}
           </p>
         </div>
         <div>

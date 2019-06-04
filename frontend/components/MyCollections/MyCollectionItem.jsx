@@ -22,7 +22,7 @@ const MyCollectionItem = ({
           <div className={MiddleTitle}>{title}</div>
           <div className={MiddleDate}>
             <p>
-              {month}, {day},{time}
+              {month}, {day}, {time}
             </p>
           </div>
           <div className={MiddleLocation}>{location}</div>

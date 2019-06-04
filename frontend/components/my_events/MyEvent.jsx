@@ -20,7 +20,7 @@ const MyEvent = ({
       <div className="myevent-details">
         <p className="myevent-title">{title}</p>
         <p className="myevent-time">
-          {month} {day},{year} {time} Ticket Price: {price} Ticket Quantity:{" "}
+          {month} {day}, {year} {time} Ticket Price: {price} Ticket Quantity:{" "}
           {quantity}
         </p>
       </div>
