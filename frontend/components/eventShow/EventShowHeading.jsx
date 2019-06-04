@@ -7,7 +7,7 @@ const EventShowHeading = ({ title, date, organizer, cover, price }) => {
   return (
     <div className={eventShowHeadingContainer}>
       <div className={eventShowImageContainer}>
-        <img src={`${cover}`} className={eventShowImage} />
+        {cover ? <img src={`${cover}`} className={eventShowImage} /> : <div />}
       </div>
       <div className={eventShowTitleContainer}>
         <div className={eventShowDateContainer}>
@@ -42,13 +42,13 @@ const eventShowHeadingContainer = css`
 const eventShowImageContainer = css`
   height: 360px;
   width: 720px;
+  background: rgb(249, 233, 202);
   padding: 0;
   margin: 0;
 `;
 
 const eventShowTitleContainer = css`
   padding: 30px;
-  /* margin-right: 15px; */
   flex-grow: 1;
   background-color: #ebf1f3;
   border-radius: 0px 5px 0px 0px;
@@ -90,4 +90,7 @@ const eventheadingOrganizer = css`
   color: rgb(111, 114, 135);
 `;
 
+const emptyDiv = css`
+  background: #ebf1f3;
+`;
 export default EventShowHeading;

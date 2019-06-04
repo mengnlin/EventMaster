@@ -33,7 +33,6 @@ class EventShow extends React.Component {
     const purchaseATicket = () =>
       alert("You had succefully purchase a ticket!");
     if (event) {
-      console.log(event.time);
       let purchasesTicketNumber = event.purchased_ticket_count;
       return (
         <>
@@ -81,8 +80,12 @@ class EventShow extends React.Component {
                 if (!this.props.currentUser) {
                   alert("Please Sign in first");
                 } else {
-                  createPurchasedTicket(event.ticket.ticketId).then(() => {
-                    purchaseATicket();
+                  createPurchasedTicket(event.ticket.ticketId).then(res => {
+                    if (typeof res === "string") {
+                      alert(res);
+                    } else {
+                      purchaseATicket();
+                    }
                     return fetchEvent(event.id).then(event =>
                       this.setState({ event })
                     );

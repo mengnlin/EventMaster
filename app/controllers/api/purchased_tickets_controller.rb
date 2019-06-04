@@ -2,8 +2,12 @@ class Api::PurchasedTicketsController < ApplicationController
     before_action :require_logged_in
 
     def create
-        @purchased_ticket=PurchasedTicket.create(purchased_ticket_params)
-        if @purchased_ticket.save
+        @purchased_ticket=PurchasedTicket.new(purchased_ticket_params)
+        event=Event.find(purchased_ticket_params[:event_id])
+        purchased_tickets_count=event.purchased_tickets.length
+        if event.purchased_tickets.length>= event.ticket.quantity
+            render json: '"Sorry Ticket had Sold Out"'
+        elsif @purchased_ticket.save
             @purchased_tickets=current_user.purchased_tickets
             render "api/purchased_tickets/index"
         else
