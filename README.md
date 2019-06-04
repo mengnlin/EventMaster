@@ -1,5 +1,6 @@
 # EventMaster
 
+[logo]: https://github.com/mengnlin/EventMaster/blob/master/public/eventmaster.png
 [Event Master Live Demo](https://event-master.herokuapp.com/)
 
 
