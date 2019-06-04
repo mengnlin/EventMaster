@@ -32,13 +32,20 @@ This project was designed to be completed within 10 days. Rails was used as proj
 
 <img src="https://github.com/mengnlin/EventMaster/blob/master/public/login.png" width="425"/> <img src="https://github.com/mengnlin/EventMaster/blob/master/public/signup.png" width="425"/>
 
+
+
+***
+
 ### Home page
 
 ##### User could still visit the home page and event show page without log in. However, event listing/booking/following features are only opened to registed users.
-
 ##### This Nav Bar could bring users to their desire event management page
 
 <img src="https://github.com/mengnlin/EventMaster/blob/master/public/navbar.png"/>
+
+
+
+***
 
 ### Event Show
 
@@ -50,17 +57,28 @@ This project was designed to be completed within 10 days. Rails was used as proj
 
 <img src="https://github.com/mengnlin/EventMaster/blob/master/public/LikeBar.gif"/>
 
+
+
+***
+
 ### My Likes
 
 ##### After following an event, it will appear on My Likes page. User could review or delete all likes on this page
 
 ![MyLikes](https://github.com/mengnlin/EventMaster/blob/master/public/myLikesRecord.gif)
 
+
+
+
+***
+
 ### My Tickets
 
 ##### After Purchasing an tickets, User could manage the ticket on My Tickets page
 
 ![myTicket](https://github.com/mengnlin/EventMaster/blob/master/public/myticket.gif)
+
+
 
 ---
 
