@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import EventEditorWrapper from "./EventEditorWrapper";
 import editEventFormData from "./editEventFormData";
 import { css } from "emotion";
-import { logout } from "../../actions/session_actions";
 import Bar from "../Bar";
 import NavBarButton from "../NavBarButton";
 class EventForm extends React.Component {
@@ -73,7 +72,7 @@ class EventForm extends React.Component {
           <NavBarButton label="My Events" link="/myevents" />
           <NavBarButton label="My Tickets" link="/mytickets" />
           <NavBarButton label="My Likes" link="/mycollections" />
-          <NavBarButton label="Sign Out" link="/" onClick={logout} />
+          <NavBarButton label="Sign Out" link="/" onClick={this.props.logout} />
         </Bar>
         <form onSubmit={this.handleSubmit} className={formContainer}>
           <EventEditorWrapper {...editEventFormData.basicInfo}>

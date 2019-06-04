@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { createEvent, clearErrors } from "../../actions/event_actions";
+import { logout } from "../../actions/session_actions";
 import EventForm from "./EventForm";
 
 const mapStateToProps = state => {
@@ -18,7 +19,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   processForm: event => dispatch(createEvent(event)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  logout: () => dispatch(logout())
 });
 
 export default connect(

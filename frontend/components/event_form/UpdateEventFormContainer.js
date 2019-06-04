@@ -6,6 +6,7 @@ import {
 } from "../../actions/event_actions";
 import EventForm from "./EventForm";
 import React from "react";
+import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = (state, ownProps) => {
   let defaultEvent = {
@@ -28,7 +29,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   processForm: (event, id) => dispatch(updateEvent(event, id)),
   clearErrors: () => dispatch(clearErrors()),
-  fetchEvent: id => dispatch(fetchEvent(id))
+  fetchEvent: id => dispatch(fetchEvent(id)),
+  logout: () => dispatch(logout())
 });
 
 class EditEventForm extends React.Component {
@@ -37,8 +39,14 @@ class EditEventForm extends React.Component {
   }
 
   render() {
-    const { event, formType, processForm, errors, clearErrors } = this.props;
-    console.log(this.props.event);
+    const {
+      event,
+      formType,
+      processForm,
+      errors,
+      clearErrors,
+      logout
+    } = this.props;
     return (
       <EventForm
         event={event}
@@ -46,6 +54,7 @@ class EditEventForm extends React.Component {
         processForm={processForm}
         errors={errors}
         clearErrors={clearErrors}
+        logout={logout}
       />
     );
   }

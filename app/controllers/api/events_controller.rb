@@ -17,7 +17,8 @@ class Api::EventsController < ApplicationController
         if params[:category]
             @events = @events.select{|event| event.category==params[:category]}
         elsif params[:editorpick]
-            @events = @events[0...10]
+            ending=@events.length-1
+            @events = @events[ending-8...ending]
         end
     end 
 
