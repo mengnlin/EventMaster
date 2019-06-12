@@ -1,8 +1,9 @@
 class Api::CollectionsController < ApplicationController
      before_action :require_logged_in, only:[:create,:destroy]
      def create 
-        @collection =Collection.create({user_id:current_user.id,event_id:params[:event_id]})
+        @collection =Collection.new({user_id:current_user.id,event_id:params[:event_id]})
         @collection.user_id = current_user.id
+        # debugger
         if @collection.save
             render 'api/collections/index'
         else  

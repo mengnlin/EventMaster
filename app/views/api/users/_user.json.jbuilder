@@ -6,6 +6,7 @@ json.events do
 end 
 
 json.purchased_tickets do 
+    # json.partial! 'api/ticket',tickets:user.purchased_tickets
     json.array! user.purchased_tickets do |purchased_ticket|
         json.id purchased_ticket.id
         json.event_id purchased_ticket.event_id
@@ -14,6 +15,7 @@ json.purchased_tickets do
         json.event_title purchased_ticket.event.title
         json.event_location purchased_ticket.event.location
         json.event_pictureUrl url_for(purchased_ticket.event.picture)
+       
     end  
 end
 json.collections do 
@@ -21,7 +23,6 @@ json.collections do
 end  
 json.likes do 
     json.array! user.followed_events do |event|
-        json.like_id event.user.collections.find_by(event_id:event.id).id
         json.event_id event.id
         json.event_date event.event_date
         json.event_time event.time

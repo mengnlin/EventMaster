@@ -6,6 +6,7 @@ class Api::TicketsController < ApplicationController
         event=Event.find(@ticket.event.id)
         @ticket.event.organizer_id=current_user.id
         if @ticket.save 
+            # event.ticket_id=ticket.id
             render 'api/tickets'
         else  
             render json: @ticket.errors.full_messages, status:422

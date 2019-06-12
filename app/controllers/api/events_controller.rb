@@ -2,9 +2,12 @@ class Api::EventsController < ApplicationController
     before_action :require_logged_in, only:[:create,:update]
 
     def create 
+        # p event_params[:price]
+        # if(!event_params[:imageUrl])
+        #     event_params[:imageUrl]='https://event-master-dev.s3-us-west-1.amazonaws.com/111.jpg'
+        # end
         @event =Event.create(event_params)
         @event.organizer_id = current_user.id
-        # p event_params[:price]
         if @event.save
             Ticket.create(ticket_params(@event)).save
             render 'api/events/show'

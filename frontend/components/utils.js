@@ -21,7 +21,6 @@ export const dateDecomp = date => {
 
 export const timeDecomp = time => {
   const date = new Date(time);
-  console.log(date.toLocaleTimeString());
   const noon = date.toLocaleTimeString().split(" ")[1];
   let hour = date.getUTCHours();
   if (hour > 12) {
