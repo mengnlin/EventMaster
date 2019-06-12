@@ -29,10 +29,8 @@ class SessionFrom extends React.Component {
     this.props.processForm(user).then(() => this.props.history.push("/"));
   }
   demoUserLogIn() {
-    this.setState({ username: "mena", password: "aaaaaa" }, user =>
-      this.props
-        .processForm(this.state)
-        .then(() => this.props.history.push("/"))
+    this.setState({ username: "blueberry", password: "blueberry" }, user =>
+      this.props.login(this.state).then(() => this.props.history.push("/"))
     );
   }
   renderErrors() {
