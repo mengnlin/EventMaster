@@ -17,8 +17,10 @@
 class Event < ApplicationRecord
     has_one_attached :picture
 
-    validates :title,:description,:event_date,:organizer_id,:time,:location,:picture,:category,presence:true 
+    validates :title,:description,:event_date,:organizer_id,:time,:location,:category,presence:true 
+    validate :ensure_picture
     validates :title, uniqueness:true
+
 
     belongs_to :user,
     foreign_key: :organizer_id,
@@ -30,6 +32,13 @@ class Event < ApplicationRecord
     # has_many :collections
 
     has_many :purchased_tickets
+
+
+    def ensure_picture
+        unless self.picture.attached?
+            errors[:photo]<<"Must be attached"
+        end
+    end 
 
 
 end
