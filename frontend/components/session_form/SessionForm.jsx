@@ -8,7 +8,6 @@ class SessionFrom extends React.Component {
     this.state = {
       username: "",
       password: ""
-      // errors:props.errors;
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoUserLogIn = this.demoUserLogIn.bind(this);

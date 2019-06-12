@@ -15,8 +15,9 @@
 #
 
 class Event < ApplicationRecord
+    has_one_attached :picture
 
-    validates :title,:description,:event_date,:organizer_id,:time,:location,:category,presence:true 
+    validates :title,:description,:event_date,:organizer_id,:time,:location,:picture,:category,presence:true 
     validates :title, uniqueness:true
 
     belongs_to :user,
@@ -24,7 +25,6 @@ class Event < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
-    has_one_attached :picture
 
     has_one :ticket
     # has_many :collections
