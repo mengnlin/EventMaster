@@ -11,11 +11,8 @@
 #
 
 class PurchasedTicket < ApplicationRecord
-    validates :user_id,:event_id,:ticket_id, presence:true
-    belongs_to :event 
-    belongs_to :ticket 
-    belongs_to :user
-
-    
-
+  validates :user_id, :event_id, :ticket_id, presence: true
+  belongs_to :event
+  belongs_to :ticket
+  belongs_to :user
 end

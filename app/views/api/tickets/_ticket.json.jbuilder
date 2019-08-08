@@ -1,1 +1,1 @@
-json.extract! event, :price,:quantity
+json.extract! event, :price, :quantity

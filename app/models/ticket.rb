@@ -11,8 +11,8 @@
 #
 
 class Ticket < ApplicationRecord
-    validates :price, :quantity, presence:true
-    
-    belongs_to :event
-     has_many :purchased_tickets
+  validates :price, :quantity, presence: true
+
+  belongs_to :event
+  has_many :purchased_tickets
 end

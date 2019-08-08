@@ -15,30 +15,23 @@
 #
 
 class Event < ApplicationRecord
-    has_one_attached :picture
+  has_one_attached :picture
 
-    validates :title,:description,:event_date,:organizer_id,:time,:location,:category,presence:true 
-    validate :ensure_picture
-    validates :title, uniqueness:true
+  validates :title, :description, :event_date, :organizer_id, :time, :location, :category, presence: true
+  validate :ensure_picture
+  validates :title, uniqueness: true
 
+  belongs_to :user,
+             foreign_key: :organizer_id,
+             primary_key: :id,
+             class_name: :User
 
-    belongs_to :user,
-    foreign_key: :organizer_id,
-    primary_key: :id,
-    class_name: :User
+  has_one :ticket
+  # has_many :collections
 
+  has_many :purchased_tickets
 
-    has_one :ticket
-    # has_many :collections
-
-    has_many :purchased_tickets
-
-
-    def ensure_picture
-        unless self.picture.attached?
-            errors[:photo]<<"Must be attached"
-        end
-    end 
-
-
+  def ensure_picture
+    errors[:photo] << 'Must be attached' unless picture.attached?
+  end
 end
