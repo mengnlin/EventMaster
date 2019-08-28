@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import React from "react";
-import { Link } from "react-router-dom";
 import { fetchEvents, deleteEvent } from "../../actions/event_actions";
 import { logout } from "../../actions/session_actions";
 import MyEvent from "./MyEvent";

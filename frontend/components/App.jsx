@@ -7,7 +7,6 @@ import UpdateEventFormContainer from "./event_form/UpdateEventFormContainer";
 import CreateEventFormContainer from "./event_form/CreateEventFormContainer";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Home from "./home";
-import { Link } from "react-router-dom";
 import EventShow from "./eventShow/EventShow";
 import EventIndexContainer from "./event_index/EventIndexContainer";
 import MyEventsContainer from "./my_events/MyEventsContainer";
