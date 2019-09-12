@@ -69,7 +69,6 @@ class MyCollections extends React.Component {
                       cover={collectedEvent.pictureUrl}
                       location={collectedEvent.location}
                       reFetch={() => {
-                        // debugger;
                         return fetchCollectedEvents().then(collections =>
                           this.setState({ collections })
                         );

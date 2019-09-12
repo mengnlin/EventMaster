@@ -7,7 +7,6 @@ const EventTile = ({ title, location, date, cover, eventId }) => {
   return (
     <div className="event-tile-outer-container">
       <div className="event-tile-inner-container">
-        {/* <div> */}
         <Link to={`/events/${eventId}`}>
           {cover ? (
             <div
