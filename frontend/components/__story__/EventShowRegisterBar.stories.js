@@ -3,5 +3,5 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 
 storiesOf("EventShowRegisterBar", module).add("default", () => (
-  <EventShowRegisterBar />
+  <EventShowRegisterBar ticket={{ quantity: 10 }} />
 ));

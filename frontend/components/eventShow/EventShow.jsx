@@ -18,7 +18,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
-class EventShow extends React.Component {
+export class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
